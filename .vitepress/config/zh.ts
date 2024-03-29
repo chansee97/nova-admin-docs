@@ -68,6 +68,10 @@ function nav(): DefaultTheme.NavItem[] {
       activeMatch: "/donate/",
     },
     {
+      text: "在线预览",
+      link: "https://nova-admin-site.netlify.app/",
+    },
+    {
       text: "0.1",
       items: [
         {
