@@ -83,12 +83,8 @@ function nav(): DefaultTheme.NavItem[] {
           link: "https://gitee.com/chansee97/nova-admin",
         },
         {
-          text: "更新日志",
-          link: "https://github.com/chansee97/nova-admin/blob/main/CHANGELOG.md",
-        },
-        {
-          text: "参与贡献",
-          link: "https://github.com/chansee97/nova-admin/blob/main/.github/contributing.md",
+          text: "文档仓库",
+          link: "https://github.com/chansee97/nova-admin-docs",
         },
       ],
     },
@@ -102,13 +98,12 @@ function sidebarGuide(): DefaultTheme.NavItem[] {
         { text: "介绍", link: "introduction" },
         { text: "如何开始使用?", link: "how-to-start" },
         { text: "目录结构", link: "directory-structure" },
-        { text: "脚本命令", link: "script-commands" },
       ],
     },
     {
       text: "基本配置",
       items: [
-        { text: "http请求地址", link: "service-path" },
+        { text: "http请求地址", link: "service" },
         { text: "路由和菜单", link: "modify-routers" },
         { text: "自定义主题", link: "custom-theme" },
         { text: "权限控制", link: "permission-control" },
