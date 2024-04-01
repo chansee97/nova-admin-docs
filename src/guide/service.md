@@ -4,15 +4,19 @@
 
 项目中默认提供了三种请求环境，如果需要修改，可以修改`src\typings\env.d.ts`文件，增加`ServiceEnvType`类型
 
-```ts
-// src\typings\env.d.ts
+::: code-group
+
+```ts [src\typings\env.d.ts]
 type ServiceEnvType = 'dev' | 'test' | 'prod'
 ```
 
+:::
+
 在`service.config.ts`文件中配置不同的后台地址。如下例子，`dev`为开发环境，`test`为测试环境，`prod`为生产环境，为每个环境下配置了不同的后台地址
 
-```ts
-// service.config.ts
+::: code-group
+
+```ts [service.config.ts]
 export const serviceConfig: Record<ServiceEnvType, Record<string, string>> = {
   dev: {
     url: 'dev_url',
@@ -24,23 +28,28 @@ export const serviceConfig: Record<ServiceEnvType, Record<string, string>> = {
     url: 'prod_url',
   },
 }
-
 ```
+
+:::
 
 ## 使用代理访问
 
 在一些情况下，可能无法去访问到后台地址，这时候可以使用代理来访问后台。在本项目中你可以很容易切换到代理环境
 
-```shell
-# .env.dev
+::: code-group
+
+```shell [.env.dev]
 # 是否开启服务接口代理 Y | N
 VITE_HTTP_PROXY=Y
 ```
 
+:::
+
 如下配置, 开启代理后，会自动将请求地址修改为代理地址
 
-```ts
-// src\service\http\index.ts
+::: code-group
+
+```ts [src\service\http\index.ts]
 import { createAlovaInstance } from './alova'
 import { serviceConfig } from '@/../service.config'
 import { generateProxyPattern } from '@/../build/proxy'
@@ -52,37 +61,43 @@ const { url } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
 export const request = createAlovaInstance({
   baseURL: isHttpProxy ? url.proxy : url.value,
 })
-
 ```
+
+:::
 
 此处解构出的`url`和必须和上方`service.config.ts`中的字段保持一致，例如
 
-```ts
-// service.config.ts
+::: code-group
+
+```ts [service.config.ts]
 dev: {
   otherUrl: 'dev_url',
-},
+}
+```
 
-// src\service\http\index.ts
+```ts [src\service\http\index.ts]
 const { otherUrl } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
 
 ```
+
+:::
 
 ## 使用多个后台服务地址
 
 在一些情况下，可能需要使用多个后台服务地址，例如a,b,c接口请求后台A,而d,e,f接口请求后台B,此时你可以像这样配置
 
-```ts
-// service.config.ts
+::: code-group
+
+```ts [service.config.ts]
 dev: {
   url_A: 'dev_url_A',
   url_B: 'dev_url_B',
-},
+}
+```
 
-// src\service\http\index.ts
+```ts [src\service\http\index.ts]
 const { url_A, url_B } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
 
-// 创建多个alova实例
 export const requestA = createAlovaInstance({
   baseURL: isHttpProxy ? url_A.proxy : url_A.value,
 })
@@ -90,24 +105,30 @@ export const requestA = createAlovaInstance({
 export const requestB = createAlovaInstance({
   baseURL: isHttpProxy ? url_B.proxy : url_B.value,
 })
-
 ```
+
+:::
 
 ## 定义请求方法
 
 在项目中，一般需要在`src\service\api`中新建一个文件定义你的请求方法，然后导出，如下示例
 
-```ts
-// src/service/api/list.ts
+::: code-group
+
+```ts [src/service/api/list.ts]
 import { request } from '../http'
 
 export function fetchUserList() {
   return request.Get('/userList')
 }
 
-// src\service\index.ts
+```
+
+```ts [src\service\index.ts]
 export * from './api/list'
 ```
+
+:::
 
 然后在页面或其他地方引入使用
 

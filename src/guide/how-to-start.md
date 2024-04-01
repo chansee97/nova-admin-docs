@@ -7,19 +7,19 @@ Nova-admin是基于最新Vite版本开发，所以需要[Node.js](https://nodejs
 
 ## 拉取仓库
 
-从[GitHub](https://github.com/chansee97/nova-admin)仓库拉取代码
+::: code-group
 
-```bash
+```shell [GitHub]
 git clone https://github.com/chansee97/nova-admin.git
 
 ```
 
-从[Gitee](https://gitee.com/chansee97/nova-admin)仓库拉取代码
-
-```bash
+```shell [Gitee]
 git clone https://gitee.com/chansee97/nova-admin.git
 
 ```
+
+:::
 
 ## 本地启动
 
