@@ -156,6 +156,8 @@ export function fetchUserList(params: { id: number }) {
 
 ```
 
+::: details ResponseResult 类型声明
+
 ```ts
 // Service.ResponseResult
 interface ResponseResult<T> extends RequestError {
@@ -172,6 +174,8 @@ interface ResponseResult<T> extends RequestError {
 }
 
 ```
+
+:::
 
 其中`Service.ResponseResult`是请求响应数据的包裹，无需变动，需要改变其传入的泛型，如上例传入了`MyList`类型
 
@@ -203,6 +207,8 @@ export function fetchPost(data: any) {
 ```
 
 ### Post(form)
+
+Post方法默认为`json`格式，如果需要使用`form`格式，你可以这样定义，配置`meta`标识`isFormPost`，在发送请求的过程中会自动修改格式
 
 ```ts
 export function fetchFormPost(data: any) {
@@ -250,7 +256,7 @@ export function withoutToken() {
 
 ### 接口数据转换
 
-一些时候，后台返回的数据可能需要进行转换，此时你可以像这样定义，在下面的例子中`gender`和`status`返回后将会被自动改写可以直接使用的表示
+一些时候，后台返回的数据可能需要进行转换，此时你可以像这样定义，在下面的例子中`gender`和`status`返回后会被自动改写
 
 ```ts
 export function dictData() {
@@ -358,3 +364,7 @@ async function handleDownloadFile() {
 本项目的请求方法基于Alova进行封装，更多使用方法请参考[Alova](https://alova.js.org/zh/docs/getting-started)
 
 :::
+
+## 请求器字段配置
+
+在`src\service\http\config.ts`中，你可以修改请求器的判断配置

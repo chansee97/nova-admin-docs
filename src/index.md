@@ -13,10 +13,10 @@ hero:
       text: 了解Nova-admin
       link: /guide/introduction
     - theme: alt
-      text: 开始使用
-      link: /guide/how-to-start
-    - theme: alt
       text: Github
+      link: https://github.com/chansee97/nova-admin
+    - theme: alt
+      text: 在线预览
       link: https://github.com/chansee97/nova-admin
 
 features:

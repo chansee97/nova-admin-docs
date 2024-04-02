@@ -4,18 +4,18 @@ export const zh = defineConfig({
   lang: "zh-Hans",
   description: "一个简洁、干净的中后台框架",
 
-
   themeConfig: {
     nav: nav(),
 
     sidebar: {
       "/guide/": { base: "/guide/", items: sidebarGuide() },
       "/other/": { base: "/other/", items: sidebarReference() },
+      "/dev/": { base: "/dev/", items: sidebarEnv() },
     },
 
     editLink: {
       pattern:
-        "https://github.com/chansee97/nova-admin-docs/edit/main/docs/:path",
+        "https://github.com/chansee97/nova-admin-docs/edit/main/src/:path",
       text: "在 GitHub 上编辑此页面",
     },
 
@@ -58,6 +58,11 @@ function nav(): DefaultTheme.NavItem[] {
       activeMatch: "/guide/",
     },
     {
+      text: "开发配置",
+      link: "/dev/git",
+      activeMatch: "/dev/",
+    },
+    {
       text: "其他问题",
       link: "/other/FAQ",
       activeMatch: "/other/",
@@ -68,12 +73,12 @@ function nav(): DefaultTheme.NavItem[] {
       activeMatch: "/donate/",
     },
     {
-      text: "在线预览",
-      link: "https://nova-admin-site.netlify.app/",
-    },
-    {
-      text: "0.1",
+      text: "相关链接",
       items: [
+        {
+          text: "在线预览",
+          link: "https://nova-admin-site.netlify.app/",
+        },
         {
           text: "Github",
           link: "https://github.com/chansee97/nova-admin",
@@ -103,17 +108,23 @@ function sidebarGuide(): DefaultTheme.NavItem[] {
     {
       text: "基本配置",
       items: [
-        { text: "http请求地址", link: "service" },
+        { text: "请求服务配置", link: "service" },
         { text: "路由和菜单", link: "modify-routers" },
         { text: "自定义主题", link: "custom-theme" },
         { text: "权限控制", link: "permission-control" },
+        { text: "环境变量", link: "env-variable" },
+      ],
+    },
+    {
+      text: "扩展使用",
+      items: [
+        { text: "使用图标", link: "use-icons" },
+        { text: "UnoCSS", link: "unocss" },
       ],
     },
     {
       text: "相关内容",
-      items: [
-        { text: "配套后端项目", link: "backend-project"},
-      ],
+      items: [{ text: "配套后端项目", link: "backend-project" }],
     },
   ];
 }
@@ -122,6 +133,25 @@ function sidebarReference(): DefaultTheme.NavItem[] {
     {
       text: "其他问题",
       items: [{ text: "FAQ", link: "FAQ" }],
+    },
+  ];
+}
+function sidebarEnv(): DefaultTheme.NavItem[] {
+  return [
+    {
+      text: "开发工具",
+      items: [
+        { text: "vscode插件", link: "vc-plugins" },
+        { text: "便利工具", link: "awesome-tools" }
+      ],
+    },
+    {
+      text: "开发环境",
+      items: [
+        { text: "Git", link: "git" },
+        { text: "NodeJs", link: "nodejs" },
+        { text: "Mysql", link: "mysql" },
+      ],
     },
   ];
 }
