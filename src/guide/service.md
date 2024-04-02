@@ -250,18 +250,20 @@ export function withoutToken() {
 
 ### 接口数据转换
 
-一些时候，后台返回的数据可能需要进行转换，此时你可以像这样定义
+一些时候，后台返回的数据可能需要进行转换，此时你可以像这样定义，在下面的例子中`gender`和`status`返回后将会被自动改写可以直接使用的表示
 
 ```ts
 export function dictData() {
   return request.Get('/getDictData', {
-
-    // 在这里定义转换函数
     transformData(rawData, _headers) {
-      const { data } = rawData as any
+      const response = rawData as any
       return {
-        gender: data.gender === 0 ? '男' : '女',
-        status: `状态是${data.status}`,
+        ...response,
+        data: {
+          ...response.data,
+          gender: response.data.gender === 0 ? '男' : '女',
+          status: `状态是${response.data.status}`,
+        },
       }
     },
   })
@@ -285,16 +287,43 @@ export function getBlob(url: string) {
 
 ```
 
+一个简单的调用并保存的示例
+
+```ts
+function getBlobFile() {
+  getBlob(filePath.value).then((res) => {
+    downloadLink(res, 'BlobOk')
+  })
+}
+function downloadLink(data: Blob, name: string) {
+  const link = URL.createObjectURL(data)
+  const eleLink = document.createElement('a')
+  eleLink.download = name
+  eleLink.style.display = 'none'
+  eleLink.href = link
+  document.body.appendChild(eleLink)
+  eleLink.click()
+  document.body.removeChild(eleLink)
+}
+// 调用
+getBlobFile()
+```
+
 ### 进度下载
 
 有时后台返回的大文件需要下载进度，则这样定义
 
 ```ts
 export function downloadFile(url: string) {
-  return blankInstance.Get(url, {
+  const methodInstance = blankInstance.Get<Blob>(url, {
     // 开启下载进度
     enableDownload: true,
   })
+  methodInstance.meta = {
+    // 标识为bolb数据
+    isBlob: true,
+  }
+  return methodInstance
 }
 
 ```
@@ -311,6 +340,17 @@ const { downloading, abort: abortDownloadFile, send: sendDownloadFile } = useReq
   // 当immediate为false时，默认不发出
   immediate: false,
 })
+// 使用computed自动计算进度
+const downloadProcess = computed(() => {
+  if (!downloading.value.loaded)
+    return 0
+  return Math.floor(downloading.value.loaded / downloading.value.total * 100)
+})
+// 对请求结果保存成文件
+async function handleDownloadFile() {
+  const res = await sendDownloadFile()
+  downloadLink(res, 'fileOk')
+}
 ```
 
 ::: tip 更多使用方法
