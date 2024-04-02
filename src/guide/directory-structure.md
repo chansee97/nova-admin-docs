@@ -12,6 +12,7 @@ nova-admmin
 │   └── favicon.svg                  # 站点图标
 ├── src
 │   ├── assets                       # 静态资源
+│   │   └── svg-icons                # 自定义svg图标资源
 │   ├── components                   # 公共组件
 │   │   ├── common                   # 框架内部组件
 │   │   └── custom                   # 自定义组件
@@ -33,7 +34,8 @@ nova-admmin
 │   ├── router                       # 路由配置
 │   │   ├── guard.ts                 # 路由守卫配置
 │   │   ├── routes.inner.ts          # 固定页面路由
-│   │   └── routes.static.ts         # 本地静态页面路由
+│   │   ├── routes.static.ts         # 本地静态页面路由
+│   │   └── index.ts                 # 实例化路由导出
 │   ├── service                      # 服务配置
 │   │   ├── api                      # 全局接口配置
 │   │   ├── http                     # 封装请求方法
@@ -51,14 +53,13 @@ nova-admmin
 │   │   └── tab.ts                   # Tab页签相关存储
 │   ├── styles                       # 项目样式风格
 │   │   ├── reset.css                # 重置样式css
-│   │   ├── transition.css           # 过度样式css
+│   │   ├── transition.css           # 过渡样式css
 │   │   └── index.css                # 统一导出出口
 │   ├── typings                      # 类型文件
 │   │   ├── api.d.ts                 # 接口类型文件
 │   │   ├── business.d.ts            # 业务类型文件
 │   │   ├── env.d.ts                 # 环境变量类型文件
 │   │   ├── global.d.ts              # 适用全局的其他类型文件
-│   │   ├── package.d.ts             # 包类型文件
 │   │   ├── route.d.ts               # 路由类型文件
 │   │   ├── router.d.ts              # 覆盖router原生类型
 │   │   ├── service.d.ts             # 请求方法类型文件

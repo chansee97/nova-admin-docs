@@ -15,7 +15,7 @@ export const zh = defineConfig({
 
     editLink: {
       pattern:
-        "https://github.com/chansee97/nova-admin-docs/edit/main/docs/:path",
+        "https://github.com/chansee97/nova-admin-docs/edit/main/src/:path",
       text: "在 GitHub 上编辑此页面",
     },
 
@@ -103,17 +103,20 @@ function sidebarGuide(): DefaultTheme.NavItem[] {
     {
       text: "基本配置",
       items: [
-        { text: "http请求地址", link: "service" },
+        { text: "请求服务配置", link: "service" },
         { text: "路由和菜单", link: "modify-routers" },
         { text: "自定义主题", link: "custom-theme" },
         { text: "权限控制", link: "permission-control" },
+        { text: "环境变量", link: "env-variable" },
       ],
     },
     {
+      text: "扩展使用",
+      items: [{ text: "使用图标", link: "use-icons" }],
+    },
+    {
       text: "相关内容",
-      items: [
-        { text: "配套后端项目", link: "backend-project"},
-      ],
+      items: [{ text: "配套后端项目", link: "backend-project" }],
     },
   ];
 }

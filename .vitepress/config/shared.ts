@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress";
-import {qq} from "./icon";
+import { qq } from "./icon";
 
 export const shared = defineConfig({
   title: "Nova-admin",
