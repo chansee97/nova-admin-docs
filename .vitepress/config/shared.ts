@@ -13,6 +13,15 @@ export const shared = defineConfig({
   /* prettier-ignore */
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/nova-admin.svg' }],
+    ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-JYHD4M2FMM' }],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'TAG_ID');`
+    ]
   ],
 
   themeConfig: {
