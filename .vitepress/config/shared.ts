@@ -21,7 +21,7 @@ export const shared = defineConfig({
       `window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'TAG_ID');`
+      gtag('config', 'G-JYHD4M2FMM');`
     ]
   ],
 
