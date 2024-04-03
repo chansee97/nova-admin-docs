@@ -1,7 +1,7 @@
-# Donation
+# 捐助
 
-If you feel that this project has been helpful for your work or study, you can also buy me a cup of coffee below.
+如果感觉本项目对你工作或学习有帮助， 也可以在下方请我喝一杯咖啡
 
-| WeChat | Alipay |
+| 微信 | 支付宝 |
 | :--: |:--: |
 | <img src="https://cdn.jsdelivr.net/gh/chansee97/static/sponsor-wechat.png" width=170> | <img src="https://cdn.jsdelivr.net/gh/chansee97/static/sponsor-alipay.png" width=170>|

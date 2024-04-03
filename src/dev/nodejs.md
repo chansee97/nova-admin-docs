@@ -1,129 +1,129 @@
 # NodeJs
 
-Node. js目前前端工程化开发必备的环境
+Node.js is currently an essential environment for front-end engineering development.
 
 ::: tip
-不推荐原生安装，存在版本管理问题。推荐使用nvm、volta等包管理器来安装node
+It is not recommended to install Node.js natively due to version management issues. It is recommended to use package managers like nvm, volta, etc., to install Node.js.
 :::
 
-## 原生Node安装
+## Native Node Installation
 
-[Node环境下载](https://nodejs.org/)
+[Node Official Download](https://nodejs.org/)
 
-检验安装是否成功
+Check if the installation is successful
 
 ```shell
 node -v
 ```
 
-设置npm镜像源, 加速下载,此处使用淘宝镜像
+Set npm registry source to accelerate downloads. Here, we use the Taobao mirror.
 
 ```shell
 npm config set registry https://registry.npmmirror.com
 ```
 
-## 包管理器
+## Package Managers
 
-npm是node. js的包管理器，也是node. js的默认包管理器，但是npm下载包的速度慢，占用空间大，存在一定的问题，所以推荐使用[pnpm](https://pnpm.io/)等包管理器
+npm is the package manager for Node.js, but npm's package download speed is slow, takes up a lot of space, and has some issues. Therefore, it is recommended to use [pnpm](https://pnpm.io/) and other package managers.
 
 ```shell
 npm install -g pnpm
 ```
 
-常用命令
+Common commands
 
 ```shell
-# 安装生产依赖
+# Install production dependencies
 pnpm add package-name
-# 安装开发依赖
+# Install development dependencies
 pnpm add -D package-name
-# 安装指定版本
+# Install a specific version
 pnpm add package-name@version
-# 安装项目所有依赖 别名: i
+# Install all project dependencies (alias: i)
 pnpm install
-# 删除依赖 别名: rm, uninstall, un
+# Remove a dependency (alias: rm, uninstall, un)
 pnpm remove package-name
-# 更新依赖 别名： up, upgrade
+# Update a dependency (alias: up, upgrade)
 pnpm update package-name
-# 更新所有依赖
+# Update all dependencies
 pnpm update
-# 移除不需要的packages。
+# Remove unnecessary packages
 pnpm prune
-# 运行一个在 package 定义的脚本，run可以省略
+# Run a script defined in the package, 'run' can be omitted
 pnpm run
 ```
 
 ## VOLTA
 
-[VOLTA](https://volta.sh/)同样也是node. js的版本管理器，但是它可以支持不同项目使用不同环境，切换项目自动切换node版本。我更加推荐使用volta来管理node版本
+[VOLTA](https://volta.sh/) is also a version manager for Node.js. It can support different projects using different environments and automatically switch Node.js versions for different projects. I recommend using Volta to manage Node.js versions.
 
-- [volta安装](https://docs.volta.sh/guide/getting-started)
+- [Volta Installation](https://docs.volta.sh/guide/getting-started)
 
-### VOLTA常用命令
+### VOLTA Common Commands
 
 ```shell
-# 安装 LTS 版本
+# Install LTS version
 volta install node
-# 要安装的工具，如'node@20'、'yarn@latest'或'you-pack@^14.4.3'。
+# Install the tool, such as 'node@20', 'yarn@latest', or 'you-pack@^14.4.3'.
 volta install <tool[@version]>
-# 固定项目的运行时或包管理器,如'node@lts'或'yarn@^1.14'。
+# Pin the runtime or package manager for the project, such as 'node@lts' or 'yarn@^1.14'.
 volta pin <tool[@version]>
-# 卸载指定工具
+# Uninstall a specified tool
 volta uninstall <tool>
-# 列出所有已安装的工具
+# List all installed tools
 volta list
-# 帮助
+# Help
 volta help
 ```
 
 ## NVM
 
-[NVM](https://github.com/nvm-sh/nvm)是node. js的版本管理器
+[NVM](https://github.com/nvm-sh/nvm) is a version manager for Node.js.
 
-- [Mac安装](https://github.com/nvm-sh/nvm#installing-and-updating)
-- [windows安装](https://github.com/coreybutler/nvm-windows/releases)
+- [Mac Installation](https://github.com/nvm-sh/nvm#installing-and-updating)
+- [Windows Installation](https://github.com/coreybutler/nvm-windows/releases)
 
-### NVM源配置
+### NVM Source Configuration
 
-在你安装的目录下找到settings.txt文件，打开后加上，不加上无法安装低版本node
+Find the settings.txt file in the installation directory, open it, and add the following lines. Without these lines, you cannot install older versions of Node.js.
 
 ```text
 node_mirror: https://npmmirror.com/mirrors/node/
 npm_mirror: https://npmmirror.com/mirrors/npm/
 ```
 
-也可以使用nvm命令行来设置
+You can also set this using the nvm command line
 
 ```shell
 nvm node_mirror https://npmmirror.com/mirrors/node/
 nvm npm_mirror https://npmmirror.com/mirrors/npm/
 ```
 
-### NVM常用命令
+### NVM Common Commands
 
 ```shell
-nvm list 查看已经安装的版本
-nvm list installed 查看已经安装的版本
-nvm list available 查看网络可以安装的版本
-nvm version 查看当前的版本
-nvm install 安装最新版本nvm
-nvm use <version> ## 切换使用指定的版本node
-nvm ls 列出所有版本
-nvm current显示当前版本
-nvm alias <name> <version> ## 给不同的版本号添加别名
-nvm unalias <name> ## 删除已定义的别名
-nvm reinstall-packages <version> ## 在当前版本node环境下，重新全局安装指定版本号的npm包
-nvm on 打开nodejs控制
-nvm off 关闭nodejs控制
-nvm proxy 查看设置与代理
-nvm node_mirror [url] 设置或者查看setting.txt中的node_mirror，如果不设置的默认是 https://nodejs.org/dist/
-nvm npm_mirror [url] 设置或者查看setting.txt中的npm_mirror,如果不设置的话默认的是： https://github.com/npm/npm/archive/.
-nvm uninstall <version> 卸载制定的版本
-nvm use [version] [arch] 切换制定的node版本和位数
-nvm root [path] 设置和查看root路径
+nvm list View installed versions
+nvm list installed View installed versions
+nvm list available View versions available for installation over the network
+nvm version View the current version
+nvm install Install the latest version of nvm
+nvm use <version> Switch to use a specific version of Node
+nvm ls List all versions
+nvm current Display the current version
+nvm alias <name> <version> Add an alias to different version numbers
+nvm unalias <name> Delete defined aliases
+nvm reinstall-packages <version> Reinstall npm packages for the specified version in the current node environment
+nvm on Open Node.js control
+nvm off Close Node.js control
+nvm proxy View settings and proxy
+nvm node_mirror [url] Set or view node_mirror in setting.txt. If not set, the default is https://nodejs.org/dist/
+nvm npm_mirror [url] Set or view npm_mirror in setting.txt. If not set, the default is: https://github.com/npm/npm/archive/.
+nvm uninstall <version> Uninstall a specified version
+nvm use [version] [arch] Switch to a specified Node version and architecture
+nvm root [path] Set and view the root path
 ```
 
-### 切换版本示例
+### Example of Switching Versions
 
 ```shell
 $ nvm use 16

@@ -1,5 +1,5 @@
-# 常见问题
+# Frequently Asked Questions
 
 ::: tip
-如果你有问题，请在[issue](https://github.com/chansee97/nova-admin/issues)中查找后在提交。对于高频出现的问题会收录到FAQ中统一回答。你的问题会帮助更多的人！
+If you have any questions, please search for them in the [issues](https://github.com/chansee97/nova-admin/issues) before submitting. Commonly asked questions will be compiled and answered in the FAQ section. Your question will help more people!
 :::

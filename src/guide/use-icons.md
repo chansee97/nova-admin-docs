@@ -1,10 +1,10 @@
-# 使用图标
+# Using Icons
 
-## 自动引入图标
+## Automatically Importing Icons
 
-本项目使用[unplugin-icons](https://github.com/unplugin/unplugin-icons#auto-importing)来自动引入`@iconify-json/icon-park-outline`图标,推荐前往[icones](https://icones.js.org/collection/icon-park-outline)来寻找你需要的图标。**该方式图标会被自动打包到项目中。离线有效**
+This project uses [unplugin-icons](https://github.com/unplugin/unplugin-icons#auto-importing) to automatically import `@iconify-json/icon-park-outline` icons. It is recommended to visit [icones](https://icones.js.org/collection/icon-park-outline) to find the icons you need. **Icons imported this way will be automatically packaged into the project. Available offline.**
 
-例如，你找到一个图标`home`，必须使用`<{collection}-{icon} />`格式来引入它，否则无效。
+For example, if you find an icon named `home`, you must use the `<{collection}-{icon} />` format to import it, otherwise it will not work.
 
 ```vue
 // usage
@@ -14,19 +14,19 @@
 // modify style
 <icon-park-outline-home style="font-size: 2em; color: red"/>
 
-// modify style by Unocss
+// modify style using Unocss
 <icon-park-outline-home class="text-red text-2em"/>
 ```
 
 ::: tip
-推荐使用[Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify)插件提高开发体验
+It is recommended to use the [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) plugin to improve development experience.
 :::
 
-## 自动加载网络图标
+## Automatically Loading Network Icons
 
-项目中也提供了自动加载网络图标的功能，可以使用[icones](https://icones.js.org)中的所有图标，而不再局限于`icon-park-outline`系列，此功能是基于[@iconify/vue](https://iconify.design/docs/icon-components/vue/)和[n-icon](https://www.naiveui.com/zh-CN/light/components/icon)实现的。**该方式图标会被不会自动打包到项目中。离线无效**
+The project also provides the functionality to automatically load network icons, allowing the use of all icons from [icones](https://icones.js.org) rather than being limited to the `icon-park-outline` series. This feature is implemented based on [@iconify/vue](https://iconify.design/docs/icon-components/vue/) and [n-icon](https://www.naiveui.com/en-US/docs/icon). **Icons loaded this way will not be automatically packaged into the project. Not available offline.**
 
-例如，你找到一个图标`icon-park-outline:user`
+For example, if you find an icon named `icon-park-outline:user`
 
 ```vue
 // usage
@@ -37,33 +37,33 @@
 
 ```
 
-::: details Props类型声明
+::: details Props Type Declaration
 
 ```ts
-interface iconPorps {
-  /* 图标名称 */
+interface iconProps {
+  /* Icon name */
   icon?: string
-  /* 图标颜色 */
+  /* Icon color */
   color?: string
-  /* 图标大小 */
+  /* Icon size */
   size?: number
-  /* 图标深度 */
+  /* Icon depth */
   depth?: 1 | 2 | 3 | 4 | 5
 }
 ```
 
 :::
 
-## 图标函数
+## Icon Function
 
-有些场景可能无法直接使用组件的方式来使用图标，比如配合Naive组件添加一些动态图标，这时候可以使用`renderIcon`函数来使用图标。
+In some scenarios, it may not be possible to directly use the component to display icons, such as adding dynamic icons with Naive components. In such cases, you can use the `renderIcon` function to display icons.
 
 ```ts
 import { renderIcon } from '@/utils'
 
 const options = [
   {
-    label: '刷新',
+    label: 'Refresh',
     key: 'reload',
     icon: renderIcon('icon-park-outline:redo'),
   }
@@ -72,25 +72,25 @@ const options = [
 ```
 
 :::tip
-`renderIcon`返回一个用 [h函数](https://cn.vuejs.org/api/render-function.html#h) 包裹的`@iconify/vue`，并不是直接返回`VNode`节点，根据需要,它的用法可能是`renderIcon('{collection}:{icon}')`或者`renderIcon('{collection}:{icon}')()`,后一种方法是直接返回`VNode`节点。
+`renderIcon` returns a `@iconify/vue` wrapped by the [h function](https://v3.vuejs.org/api/global-api.html#h), not directly returning a `VNode` node. Depending on your needs, its usage may be `renderIcon('{collection}:{icon}')` or `renderIcon('{collection}:{icon}')()`, the latter directly returns a `VNode` node.
 :::
 
-## svg图标
+## SVG Icons
 
-本项目使用[unplugin-icons](https://github.com/unplugin/unplugin-icons#auto-importing)来自动引入svg图标，首先你需要在`src/assets/svg-icons`中加入svg图标
+This project uses [unplugin-icons](https://github.com/unplugin/unplugin-icons#auto-importing) to automatically import SVG icons. First, you need to add the SVG icons to `src/assets/svg-icons`.
 
-例如，你添加了一个`logo.svg`,这样在项目中使用,自定引入的名字需符合格式`svg-icons-{name}`
+For example, if you add a `logo.svg`, you can use it in the project by importing it with a custom name that follows the format `svg-icons-{name}`.
 
 ```vue
 // usage
 <svg-icons-logo/>
 
-// modify style by Unocss
+// modify style using Unocss
 <svg-icons-logo class="text-2em"/>
 ```
 
 ::: tip
-为了视觉美观，svg图标默认为1.2em大小，你可用通过修改`build\plugins.ts`来更改这个默认行为
+For visual aesthetics, SVG icons are set to a default size of 1.2em. You can modify this default behavior by changing the `build\plugins.ts` file.
 
 ```ts{8}
 // auto import iconify's icons

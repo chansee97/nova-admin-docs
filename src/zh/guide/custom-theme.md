@@ -1,8 +1,8 @@
-# Customizing Themes
+# 自定义主题
 
-## Customizing Component Library Styles
+## 定制组件库样式
 
-Modify `src\store\app\theme.json` to add the style variables you need. For specific details, please refer to [Naive-UI](https://www.naiveui.com/en-US/docs/customize-theme).
+修改`src\store\app\theme.json`,添加你需要的样式变量，具体可参考[Naive-UI](https://www.naiveui.com/zh-CN/light/docs/customize-theme)
 
 ```json
 {

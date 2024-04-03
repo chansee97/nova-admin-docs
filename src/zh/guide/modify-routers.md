@@ -1,58 +1,59 @@
-# How to Modify Request Router Menu
+# 如何修改请求路由菜单
 
-## Router Data Structure
+## 路由数据结构
 
-To ensure the clarity, simplicity, and easy maintenance of the project's router structure, both static and dynamic router data structures in the project are consistent. The router data structure is mainly divided into two parts: `base` + `meta`.
+为了保证项目路由的结构清晰，简单，易维护，项目中静态路由和动态路由的数据结构都是保持一致的。
+路由的数据结构主要分为两部分 `base` + `meta`
 
-- `base`: Contains basic information about a single router page, such as path, component address, component name, etc.
-- `meta`: Contains additional information about a single router page, such as whether to display in the menu, icon, permission requirements, etc.
+- `base`:包含了单个路由页的基础信息，如路径，组件地址，组件名等
+- `meta`:包含了单个路由页的扩展信息，如是否显示在菜单，图标，是否需要权限等
 
 ```ts
 interface baseRoute {
-  /** Router name (unique identifier) */
+  /** 路由名称(路由唯一标识) */
   name: string
-  /** Router path */
+  /** 路由路径 */
   path: string
-  /** Router redirection */
+  /** 路由重定向 */
   redirect?: string
-  /* Page component address */
+  /* 页面组件地址 */
   componentPath?: string | null
-  /* Router id */
-  id: number
-  /* Parent router id, null for top-level pages */
+  /* 路由id */
+  id: numnber
+  /* 父级路由id，顶级页面为null */
   pid: number | null
 }
 ```
 
 ```ts
 interface RouteMeta {
-  /* Page title, usually required. */
+/* 页面标题，通常必选。 */
   title: string
-  /* Icon, usually used with menus */
+  /* 图标，一般配合菜单使用 */
   icon?: string
-  /* Requires login permission. */
+  /* 是否需要登录权限。 */
   requiresAuth?: boolean
-  /* Accessible roles */
+  /* 可以访问的角色 */
   roles?: Auth.RoleType[]
-  /* Whether to enable page caching */
+  /* 是否开启页面缓存 */
   keepAlive?: boolean
-  /* Some routes we do not want to display in the menu, such as some editing pages. */
+  /* 有些路由我们并不想在菜单中显示，比如某些编辑页面。 */
   hide?: boolean
-  /* Menu sorting. */
+  /* 菜单排序。 */
   order?: number
-  /* Nested external link */
-  href?: string
-  /** The menu item that the current route needs to be selected, used for navigating to routes that are not displayed in the left menu and need to highlight a certain menu */
+  /* 嵌套外链  */
+  herf?: string
+  /** 当前路由需要选中的菜单项，用于跳转至不在左侧菜单显示的路由且需要高亮某个菜单的情况 */
   activeMenu?: string
-  /** Whether the current route will be added to the Tab */
+  /** 当前路由是否会被添加到Tab中 */
   withoutTab?: boolean
-  /** Whether the current route will be pinned in the Tab, used for some permanent pages */
+  /** 当前路由是否会被固定在Tab中,用于一些常驻页面 */
   pinTab?: boolean
 }
 ```
 
-For the convenience of backend table creation, the `meta` data is not stored as an object under the router but is prefixed with `meta.` to make it completely parallel with the parent router, while the hierarchy of routers is maintained using the `pid` field.
-Therefore, the data structure of a single router is as follows:
+这两部分数据，为了后端建表的便利性，并不将`meta`数据存为路由下的一个对象，而是添加`mata.`前缀，使其和上级路由完全平级,而路由的层级关系则使用`pid`字段来维护。
+所以，单组路由的数据结构示例如下
 
 ```js
 [
@@ -91,7 +92,7 @@ Therefore, the data structure of a single router is as follows:
 
 ```
 
-When this set of router data is obtained, it will be processed on the frontend to conform to the format of the `vue-router` router.
+当这样一组路由数据在获取后会在前端进行处理，使其符合类`vue-router`的路由格式
 
 ```js
 {

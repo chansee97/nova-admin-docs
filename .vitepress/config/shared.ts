@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import { search as zhSearch } from "./zh";
 import { qq } from "./icon";
 
 export const shared = defineConfig({
@@ -28,7 +29,13 @@ export const shared = defineConfig({
     logo: { src: "/nova-admin.svg", width: 24, height: 24 },
 
     search: {
-      provider: "local",
+      provider: "algolia",
+      options: {
+        appId: "XVJOMWXWDI",
+        apiKey: "763016448ef3b797fc4ed0283c5046ca",
+        indexName: "nova-admin-netlify",
+        locales: { ...zhSearch },
+      },
     },
 
     socialLinks: [

@@ -1,62 +1,62 @@
-# 环境变量
+# Environment Variables
 
-## 通用变量
+## Common Variables
 
-通用变量是所有环境都应该保持一致的变量，例如项目名称、项目根目录等。在`.env`文件中定义这些变量，以便在整个项目中使用。
+Common variables are variables that should be consistent across all environments, such as project name, project root directory, etc. Define these variables in the `.env` file for use throughout the entire project.
 
 ### VITE_BASE_URL
 
-- **类型：** `string`
-- **默认：** `/`
+- **Type:** `string`
+- **Default:** `/`
 
-如果你的项目是需要某个子路径下运行的，那么你可以使用`VITE_BASE_URL`变量来设置子路径。例如，如果你的项目运行在`https://example.com/my-app`，你可以设置`VITE_BASE_URL`为`/my-app`。项目中相关配置会自动修改
+If your project needs to run under a sub-path, you can use the `VITE_BASE_URL` variable to set the sub-path. For example, if your project runs at `https://example.com/my-app`, you can set `VITE_BASE_URL` to `/my-app`. Relevant configurations in the project will be automatically adjusted.
 
 ### VITE_APP_NAME
 
-- **类型：** `string`
-- **默认：** `Nova - Admin`
+- **Type:** `string`
+- **Default:** `Nova - Admin`
 
-如果你的项目需要设置一个名称，例如`Nova-admin`，你可以设置该变量的值为你的项目名称。
+If your project requires a specific name, such as `Nova-admin`, you can set the value of this variable to your project name.
 
 ### VITE_AUTH_ROUTE_MODE
 
-- **类型：** `dynamic | static`
-- **默认：** `dynamic`
+- **Type:** `dynamic | static`
+- **Default:** `dynamic`
 
-项目中提供两种路由模式：`dynamic`和`static`。如果你不需要配合后端实现动态路由，你可以设置`VITE_AUTH_ROUTE_MODE`为`static`。
+The project provides two routing modes: `dynamic` and `static`. If you do not need to implement dynamic routing with the backend, you can set `VITE_AUTH_ROUTE_MODE` to `static`.
 
 ### VITE_HOME_PATH
 
-- **类型：** `string`
-- **默认：** `/dashboard/workbench`
+- **Type:** `string`
+- **Default:** `/dashboard/workbench`
 
-设置登陆后跳转地址,这里应当配置你登录完成后立即跳转的地址，404返回首页的情况下也是优先使用该路径
+Set the path to redirect to after login. This should be the path where you want to redirect immediately after logging in, and it will also be used as the priority path when returning to the homepage in a 404 scenario.
 
-## 开发环境
+## Development Environment
 
-开发环境变量是只有在开发中才会切换的变量，例如是否开启代理等。在`.env.dev`文件中定义这些变量。
+Development environment variables are variables that are only toggled during development, such as whether to enable proxy, etc. Define these variables in the `.env.dev` file.
 
 ### VITE_HTTP_PROXY
 
-- **类型：** `Y | N`
-- **默认：** `N`
+- **Type:** `Y | N`
+- **Default:** `N`
 
-如果你的项目需要使用代理来访问后端接口，你可以设置`VITE_HTTP_PROXY`为`Y`来开启代理。
+If your project needs to use a proxy to access backend APIs, you can set `VITE_HTTP_PROXY` to `Y` to enable the proxy.
 
-## 生产环境
+## Production Environment
 
-生产环境变量是只有在生产或构建产物时才需要的变量，例如是否开启gzip压缩等。在`.env.prod`文件中定义这些变量。
+Production environment variables are variables that are only needed during production or building, such as whether to enable gzip compression, etc. Define these variables in the `.env.prod` file.
 
 ### VITE_BUILD_COMPRESS
 
-- **类型：** `Y | N`
-- **默认：** `N`
+- **Type:** `Y | N`
+- **Default:** `N`
 
-如果你的项目需要开启产物压缩，你可以设置`VITE_BUILD_COMPRESS`和`VITE_COMPRESS_TYPE`来开启压缩
+If your project needs to enable artifact compression, you can set `VITE_BUILD_COMPRESS` and `VITE_COMPRESS_TYPE` to enable compression.
 
 ### VITE_COMPRESS_TYPE
 
-- **类型：** `gzip | brotliCompress | deflate | deflateRaw`
-- **默认：** `gzip`
+- **Type:** `gzip | brotliCompress | deflate | deflateRaw`
+- **Default:** `gzip`
 
-设置压缩算法
+Set the compression algorithm.

@@ -1,3 +1,3 @@
-# 配套后端项目
+# Backend Project
 
-- [Nova-admin-nest](https://github.com/chansee97/nove-admin-nest) (开发中)基于TS, NestJs, typeorm的Nova-Admin配套后台项目
+- [Nova-admin-nest](https://github.com/chansee97/nove-admin-nest) (in development): Backend project for Nova-Admin based on TypeScript, NestJs, and TypeORM.

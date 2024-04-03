@@ -1,8 +1,8 @@
-# 如何修改请求后台
+# How to Modify Backend Requests
 
-## 修改请求后台地址
+## Modify Backend Address
 
-项目中默认提供了三种请求环境，如果需要修改，可以修改`src\typings\env.d.ts`文件，增加`ServiceEnvType`类型
+The project provides three default request environments. If you need to modify them, you can modify the `src\typings\env.d.ts` file and add the `ServiceEnvType` type.
 
 ::: code-group
 
@@ -12,7 +12,7 @@ type ServiceEnvType = 'dev' | 'test' | 'prod'
 
 :::
 
-在`service.config.ts`文件中配置不同的后台地址。如下例子，`dev`为开发环境，`test`为测试环境，`prod`为生产环境，为每个环境下配置了不同的后台地址
+Configure different backend addresses in the `service.config.ts` file. In the following example, `dev` is the development environment, `test` is the testing environment, and `prod` is the production environment, with different backend addresses configured for each environment.
 
 ::: code-group
 
@@ -32,20 +32,20 @@ export const serviceConfig: Record<ServiceEnvType, Record<string, string>> = {
 
 :::
 
-## 使用代理访问
+## Use Proxy
 
-在一些情况下，可能无法去访问到后台地址，这时候可以使用代理来访问后台。在本项目中你可以很容易切换到代理环境
+In some cases, it may not be possible to access the backend address directly. In such cases, you can use a proxy to access the backend. In this project, you can easily switch to a proxy environment.
 
 ::: code-group
 
 ```shell [.env.dev]
-# 是否开启服务接口代理 Y | N
+# Enable service interface proxy Y | N
 VITE_HTTP_PROXY=Y
 ```
 
 :::
 
-如下配置, 开启代理后，会自动将请求地址修改为代理地址
+With the following configuration, enabling the proxy will automatically modify the request address to the proxy address.
 
 ::: code-group
 
@@ -65,7 +65,7 @@ export const request = createAlovaInstance({
 
 :::
 
-此处解构出的`url`和必须和上方`service.config.ts`中的字段保持一致，例如
+The deconstructed `url` must match the fields in `service.config.ts` as shown above, for example:
 
 ::: code-group
 
@@ -82,9 +82,9 @@ const { otherUrl } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
 
 :::
 
-## 使用多个后台服务地址
+## Using Multiple Service
 
-在一些情况下，可能需要使用多个后台服务地址，例如a,b,c接口请求后台A,而d,e,f接口请求后台B,此时你可以像这样配置
+In some cases, you may need to use multiple backend service addresses. For example, interfaces a, b, c request backend A, while interfaces d, e, f request backend B. In this case, you can configure it like this:
 
 ::: code-group
 
@@ -109,9 +109,9 @@ export const requestB = createAlovaInstance({
 
 :::
 
-## 定义请求方法
+## Define Request
 
-在项目中，一般需要在`src\service\api`中新建一个文件定义你的请求方法，然后导出，如下示例
+In the project, you generally need to create a file in `src\service\api` to define your request methods and then export them, as shown in the example below:
 
 ::: code-group
 
@@ -124,13 +124,13 @@ export function fetchUserList() {
 
 ```
 
-```ts [src\service\index.ts]
+```ts [src/service/index.ts]
 export * from './api/list'
 ```
 
 :::
 
-然后在页面或其他地方引入使用
+Then you can import and use them on pages or elsewhere:
 
 ```ts
 import { fetchUserList } from '@/service'
@@ -144,7 +144,7 @@ async function getUserList() {
 getUserList()
 ```
 
-上面是最简单的请求方法使用示例，但是这样做响应数据`res`的类型为`any`，如果需要正确获取响应数据的类型，你可以像这样定义，来规定传入参数和返回参数的类型
+The above is the simplest example of using request methods, but in this case, the response data type `res` is `any`. If you need to correctly get the response data type, you can define it like this to specify the types of input parameters and return parameters:
 
 ```ts
 interface MyList{
@@ -156,20 +156,20 @@ export function fetchUserList(params: { id: number }) {
 
 ```
 
-::: details ResponseResult 类型声明
+::: details Declaration of ResponseResult Type
 
 ```ts
 // Service.ResponseResult
 interface ResponseResult<T> extends RequestError {
-  /** 请求服务是否成功 */
+  /** Whether the service request is successful */
   isSuccess: boolean
-  /** 请求服务的错误类型 */
+  /** Error type of the service request */
   errorType: RequestErrorType
-  /** 错误码 */
+  /** Error code */
   code: RequestCode
-  /** 错误信息 */
+  /** Error message */
   msg: string
-  /** 返回的数据 */
+  /** Returned data */
   data: T
 }
 
@@ -177,17 +177,17 @@ interface ResponseResult<T> extends RequestError {
 
 :::
 
-其中`Service.ResponseResult`是请求响应数据的包裹，无需变动，需要改变其传入的泛型，如上例传入了`MyList`类型
+Here, `Service.ResponseResult` is a wrapper for the request response data, and no changes are needed. You only need to change the generic type it takes, as shown in the example above where `MyList` type is passed in.
 
 ```ts
 const { data } = await fetchUserList({id: 1})
 ```
 
-此时`data`的类型被正确推导为`MyList`
+Now, the type of `data` is correctly inferred as `MyList`.
 
-## 不同的请求使用方法
+## Request Usage Methods
 
-这里有一些定义不同的使用请求方法的例子，覆盖了大多数情况，你可以根据你的需求来选择使用
+Here are some examples of defining different request methods that cover most cases. You can choose to use them according to your needs.
 
 ### Get
 
@@ -197,7 +197,7 @@ export function fetachGet(params?: any) {
 }
 ```
 
-### Post(json)
+### Post (json)
 
 ```ts
 export function fetchPost(data: any) {
@@ -206,9 +206,9 @@ export function fetchPost(data: any) {
 
 ```
 
-### Post(form)
+### Post (form)
 
-Post方法默认为`json`格式，如果需要使用`form`格式，你可以这样定义，配置`meta`标识`isFormPost`，在发送请求的过程中会自动修改格式
+By default, the Post method is in `json` format. If you need to use `form` format, you can define it like this by setting the `meta` to indicate `isFormPost`. This will automatically modify the format during the request.
 
 ```ts
 export function fetchFormPost(data: any) {
@@ -239,9 +239,9 @@ export function fetchPut(data: any) {
 
 ```
 
-### 不需要携带token的接口
+### APIs without Token
 
-默认情况下，所有请求都会携带`token`，如果某些接口不需要携带`token`，你可以像这样定义
+By default, all requests carry a `token`. If some APIs do not require a `token`, you can define them like this:
 
 ```ts
 export function withoutToken() {
@@ -254,9 +254,9 @@ export function withoutToken() {
 
 ```
 
-### 接口数据转换
+### API Data Transformation
 
-一些时候，后台返回的数据可能需要进行转换，此时你可以像这样定义，在下面的例子中`gender`和`status`返回后会被自动改写
+Sometimes, the data returned by the backend may need to be transformed. You can define it like this, where `gender` and `status` will be automatically modified after being returned:
 
 ```ts
 export function dictData() {
@@ -267,8 +267,8 @@ export function dictData() {
         ...response,
         data: {
           ...response.data,
-          gender: response.data.gender === 0 ? '男' : '女',
-          status: `状态是${response.data.status}`,
+          gender: response.data.gender === 0 ? 'Male' : 'Female',
+          status: `Status is ${response.data.status}`,
         },
       }
     },
@@ -277,15 +277,15 @@ export function dictData() {
 
 ```
 
-### 获取二进制文件
+### Fetching Binary Files
 
-一些时候，后台返回的数据是文件流，需要直接下载，此时你可以像这样定义。标识为`isBlob`后关于这个接口的请求会自动进行相关处理
+Sometimes, the data returned by the backend is a file stream that needs to be downloaded directly. You can define it like this. By setting `isBlob`, the request for this API will be automatically processed accordingly.
 
 ```ts
 export function getBlob(url: string) {
   const methodInstance = blankInstance.Get<Blob>(url)
   methodInstance.meta = {
-    // 标识为bolb数据
+    // Mark as blob data
     isBlob: true,
   }
   return methodInstance
@@ -293,7 +293,7 @@ export function getBlob(url: string) {
 
 ```
 
-一个简单的调用并保存的示例
+A simple example of calling and saving the file:
 
 ```ts
 function getBlobFile() {
@@ -311,22 +311,22 @@ function downloadLink(data: Blob, name: string) {
   eleLink.click()
   document.body.removeChild(eleLink)
 }
-// 调用
+// Call
 getBlobFile()
 ```
 
-### 进度下载
+### Download Progress
 
-有时后台返回的大文件需要下载进度，则这样定义
+Sometimes, large files returned by the backend need to be downloaded with progress. In this case, you can define it like this:
 
 ```ts
 export function downloadFile(url: string) {
   const methodInstance = blankInstance.Get<Blob>(url, {
-    // 开启下载进度
+    // Enable download progress
     enableDownload: true,
   })
   methodInstance.meta = {
-    // 标识为bolb数据
+    // Mark as blob data
     isBlob: true,
   }
   return methodInstance
@@ -334,37 +334,99 @@ export function downloadFile(url: string) {
 
 ```
 
-需要使用`useRequest`来进行包裹，获取下载进度对象
+You need to use `useRequest` to wrap it and get the download progress object:
 
 ```ts
 import { useRequest } from 'alova'
 
-// downloading - 下载进度对象
-// abort - 取消下载
-// send - 重新发送下载请求
+// downloading - download progress object
+// abort - cancel download
+// send - resend download request
 const { downloading, abort: abortDownloadFile, send: sendDownloadFile } = useRequest(downloadFile(downloadPath.value), {
-  // 当immediate为false时，默认不发出
+  // When immediate is false, it will not be sent by default
   immediate: false,
 })
-// 使用computed自动计算进度
+// Use computed to automatically calculate the progress
 const downloadProcess = computed(() => {
   if (!downloading.value.loaded)
     return 0
   return Math.floor(downloading.value.loaded / downloading.value.total * 100)
 })
-// 对请求结果保存成文件
+// Save the request result as a file
 async function handleDownloadFile() {
   const res = await sendDownloadFile()
   downloadLink(res, 'fileOk')
 }
 ```
 
-::: tip 更多使用方法
+::: tip More Usage Methods
 
-本项目的请求方法基于Alova进行封装，更多使用方法请参考[Alova](https://alova.js.org/zh/docs/getting-started)
+The request methods in this project are encapsulated based on Alova. For more usage methods, please refer to [Alova](https://alova.js.org/en/docs/getting-started)
 
 :::
 
-## 请求器字段配置
+## Requestor Configuration
 
-在`src\service\http\config.ts`中，你可以修改请求器的判断配置
+In `src\service\http\config.ts`, you can modify the judgment configuration of the requestor. Changing these configurations will affect the internal judgment process of the requestor instance.
+
+### DEFAULT_ALOVA_OPTIONS
+
+Modify this field to add default configurations to the requestor. For detailed field information, please refer to [alova.options](https://alova.js.org/en/api/alova#alovaoptions).
+
+### DEFAULT_BACKEND_OPTIONS
+
+Modify this field to change the default judgment fields for requests.
+
+::: details Declaration of BackendConfig Type
+
+```ts
+interface BackendConfig {
+  codeKey?: string
+  dataKey?: string
+  msgKey?: string
+  successCode?: number | string
+}
+```
+
+:::
+
+- `codeKey`: Business code field identifier
+- `dataKey`: Data-carrying field identifier
+- `msgKey`: Message identifier
+- `successCode`: Success code identifier
+
+For example, if the message identifier in the data returned by the backend you are integrating with is `message`, then you should modify `msgKey` to ensure that the requestor automatically processes it correctly. The same applies to `codeKey` and `dataKey`. The automatic data processing in the project depends on these field configurations.
+
+### ERROR_STATUS
+
+If a request encounters a server error, it will automatically judge based on the status code. If the status code is in `ERROR_STATUS`, it is considered a request failure. If it is not, a default error message will be displayed.
+
+::: details ERROR_STATUS
+
+```ts
+export const ERROR_STATUS = {
+  default: 'Request error~',
+  400: '400: Syntax error in the request~',
+  401: '401: User unauthorized~',
+  403: '403: Server refused access~',
+  404: '404: Requested resource not found~',
+  405: '405: Request method not allowed~',
+  408: '408: Network request timed out~',
+  500: '500: Internal server error~',
+  501: '501: Server not implemented request function~',
+  502: '502: Bad gateway~',
+  503: '503: Service unavailable~',
+  504: '504: Gateway timeout~',
+  505: '505: HTTP version not supported by the request~',
+}
+```
+
+:::
+
+### ERROR_NO_TIP_STATUS
+
+After a request is sent, if the server returns an error code but you do not want the user to see the error message, you can add that error code to this array. For example, by default, error code `10000` will not trigger an error message popup.
+
+```ts
+export const ERROR_NO_TIP_STATUS = [10000]
+```
