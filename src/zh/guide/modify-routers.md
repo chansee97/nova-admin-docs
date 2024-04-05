@@ -49,6 +49,8 @@ interface RouteMeta {
   withoutTab?: boolean
   /** 当前路由是否会被固定在Tab中,用于一些常驻页面 */
   pinTab?: boolean
+  /** 当前路由在左侧菜单是目录还是页面,不设置默认为page */
+  menuType?: 'dir' | 'page'
 }
 ```
 
@@ -63,6 +65,7 @@ interface RouteMeta {
     'meta.title': '仪表盘',
     'meta.requiresAuth': true,
     'meta.icon': 'icon-park-outline:analysis',
+    'meta.menuType': 'dir',
     'componentPath': null,
     'id': 1,
     'pid': null,
@@ -74,6 +77,7 @@ interface RouteMeta {
     'meta.requiresAuth': true,
     'meta.icon': 'icon-park-outline:alarm',
     'meta.pinTab': true,
+    'meta.menuType': 'page',
     'componentPath': '/dashboard/workbench/index.vue',
     'id': 2,
     'pid': 1,
@@ -84,6 +88,7 @@ interface RouteMeta {
     'meta.title': '监控页',
     'meta.requiresAuth': true,
     'meta.icon': 'icon-park-outline:anchor',
+    'meta.menuType': 'page',
     'componentPath': '/dashboard/monitor/index.vue',
     'id': 3,
     'pid': 1,
@@ -98,38 +103,41 @@ interface RouteMeta {
 {
   "name": "dashboard",
   "path": "/dashboard",
+  "component": null,
+  "redirect": "/404"
   "meta": {
     "title": "仪表盘",
     "requiresAuth": true,
-    "icon": "icon-park-outline:analysis"
+    "icon": "icon-park-outline:analysis",
+    'menuType': 'dir',
   },
-  "redirect": "/dashboard/workbench"
-  "componentPath": null,
   "id": 1,
   "pid": null,
   "children": [
     {
       "name": "dashboard_workbench",
       "path": "/dashboard/workbench",
+      "component": "/dashboard/workbench/index.vue",
       "meta": {
         "title": "工作台",
         "requiresAuth": true,
         "icon": "icon-park-outline:alarm",
-        "pinTab": true
+        "pinTab": true,
+        'menuType': 'page',
       },
-      "componentPath": "/dashboard/workbench/index.vue",
       "id": 2,
       "pid": 1
     },
     {
       "name": "dashboard_monitor",
       "path": "/dashboard/monitor",
+      "component": "/dashboard/monitor/index.vue",
       "meta": {
         "title": "监控页",
         "requiresAuth": true,
-        "icon": "icon-park-outline:anchor"
+        "icon": "icon-park-outline:anchor",
+        'menuType': 'page',
       },
-      "componentPath": "/dashboard/monitor/index.vue",
       "id": 3,
       "pid": 1
     }

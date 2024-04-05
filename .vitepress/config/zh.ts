@@ -119,6 +119,7 @@ function sidebarGuide(): DefaultTheme.NavItem[] {
       text: "扩展使用",
       items: [
         { text: "使用图标", link: "use-icons" },
+        { text: "国际化", link: "i18n" },
         { text: "UnoCSS", link: "unocss" },
       ],
     },

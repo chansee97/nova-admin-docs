@@ -95,6 +95,7 @@ function sidebarGuide(): DefaultTheme.NavItem[] {
       text: "Extended Usage",
       items: [
         { text: "Using Icons", link: "use-icons" },
+        { text: "I18n", link: "i18n" },
         { text: "UnoCSS", link: "unocss" },
       ],
     },

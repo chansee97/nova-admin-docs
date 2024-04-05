@@ -168,7 +168,7 @@ interface ResponseResult<T> extends RequestError {
   /** Error code */
   code: RequestCode
   /** Error message */
-  msg: string
+  message: string
   /** Returned data */
   data: T
 }
@@ -390,12 +390,12 @@ interface BackendConfig {
 
 :::
 
-- `codeKey`: Business code field identifier
-- `dataKey`: Data-carrying field identifier
-- `msgKey`: Message identifier
-- `successCode`: Success code identifier
+- `codeKey`: Field identifier for business code, default is `code`
+- `dataKey`: Field identifier for data payload, default is `data`
+- `msgKey`: Message identifier, default is `message`
+- `successCode`: Success status code, default is `200`
 
-For example, if the message identifier in the data returned by the backend you are integrating with is `message`, then you should modify `msgKey` to ensure that the requestor automatically processes it correctly. The same applies to `codeKey` and `dataKey`. The automatic data processing in the project depends on these field configurations.
+For example, if the message identifier in the data returned from your backend is `_message`, then you should modify the `msgKey` to ensure the correct handling within the requestor. Similarly, `codeKey` and `dataKey` should be adjusted accordingly. The automatic processing of data in the project relies on these field configurations.
 
 ### ERROR_STATUS
 

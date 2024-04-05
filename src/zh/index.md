@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 了解Nova-admin
-      link: /guide/introduction
+      link: /zh/guide/introduction
     - theme: alt
       text: Github
       link: https://github.com/chansee97/nova-admin

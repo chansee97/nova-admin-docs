@@ -48,6 +48,8 @@ interface RouteMeta {
   withoutTab?: boolean
   /** Whether the current route will be pinned in the Tab, used for some permanent pages */
   pinTab?: boolean
+  /** Specify whether the current route in the left menu is a directory or a page. If not set, the default is 'page'. */
+  menuType?: 'dir' | 'page'
 }
 ```
 
@@ -62,6 +64,7 @@ Therefore, the data structure of a single router is as follows:
     'meta.title': '仪表盘',
     'meta.requiresAuth': true,
     'meta.icon': 'icon-park-outline:analysis',
+    'meta.menuType': 'dir',
     'componentPath': null,
     'id': 1,
     'pid': null,
@@ -73,6 +76,7 @@ Therefore, the data structure of a single router is as follows:
     'meta.requiresAuth': true,
     'meta.icon': 'icon-park-outline:alarm',
     'meta.pinTab': true,
+    'meta.menuType': 'page',
     'componentPath': '/dashboard/workbench/index.vue',
     'id': 2,
     'pid': 1,
@@ -83,6 +87,7 @@ Therefore, the data structure of a single router is as follows:
     'meta.title': '监控页',
     'meta.requiresAuth': true,
     'meta.icon': 'icon-park-outline:anchor',
+    'meta.menuType': 'page',
     'componentPath': '/dashboard/monitor/index.vue',
     'id': 3,
     'pid': 1,
@@ -97,38 +102,42 @@ When this set of router data is obtained, it will be processed on the frontend t
 {
   "name": "dashboard",
   "path": "/dashboard",
+  "component": null,
+  "redirect": "/404"
   "meta": {
     "title": "仪表盘",
     "requiresAuth": true,
-    "icon": "icon-park-outline:analysis"
+    "icon": "icon-park-outline:analysis",
+    "menuType": "dir",
   },
-  "redirect": "/dashboard/workbench"
-  "componentPath": null,
   "id": 1,
   "pid": null,
   "children": [
     {
       "name": "dashboard_workbench",
       "path": "/dashboard/workbench",
+      "component": "/dashboard/workbench/index.vue",
       "meta": {
         "title": "工作台",
         "requiresAuth": true,
         "icon": "icon-park-outline:alarm",
-        "pinTab": true
+        "pinTab": true,
+        "pinTab": true,
+        "menuType": "page",
       },
-      "componentPath": "/dashboard/workbench/index.vue",
       "id": 2,
       "pid": 1
     },
     {
       "name": "dashboard_monitor",
       "path": "/dashboard/monitor",
+      "component": "/dashboard/monitor/index.vue",
       "meta": {
         "title": "监控页",
         "requiresAuth": true,
-        "icon": "icon-park-outline:anchor"
+        "icon": "icon-park-outline:anchor",
+        "menuType": "page",
       },
-      "componentPath": "/dashboard/monitor/index.vue",
       "id": 3,
       "pid": 1
     }

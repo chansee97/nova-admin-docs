@@ -168,7 +168,7 @@ interface ResponseResult<T> extends RequestError {
   /** 错误码 */
   code: RequestCode
   /** 错误信息 */
-  msg: string
+  message: string
   /** 返回的数据 */
   data: T
 }
@@ -390,12 +390,12 @@ interface BackendConfig {
 
 :::
 
-- `codeKey`: 业务码字段标识
-- `dataKey`: 数据携带字段标识
-- `msgKey`: 消息标识
-- `successCode`: 成功标识码
+- `codeKey`: 业务码字段标识，默认为`code`
+- `dataKey`: 数据携带字段标识，默认为`data`
+- `msgKey`: 消息标识，默认为`message`
+- `successCode`: 成功标识码，默认为`200`
 
-例如,在你对接的后台返回数据中，消息标识为`message`，那么你应当修改`msgKey`来保持请求器内部自动处理的正确，
+例如,在你对接的后台返回数据中，消息标识为`_message`，那么你应当修改`msgKey`来保持请求器内部自动处理的正确，
 `codeKey`，`dataKey`同理，项目中的数据自动处理依赖这些字段配置
 
 ### ERROR_STATUS
