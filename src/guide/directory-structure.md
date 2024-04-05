@@ -10,6 +10,7 @@ nova-admmin
 │   └── proxy.ts                     # Vite proxy related methods
 ├── public
 │   └── favicon.svg                  # Site favicon
+├── locales                          # Multilingual Configuration
 ├── src
 │   ├── assets                       # Static resources
 │   │   └── svg-icons                # Custom SVG icon resources
@@ -29,8 +30,9 @@ nova-admmin
 │   │   ├── BasicLayout              # Basic layout
 │   │   └── components               # Components inside the layout
 │   ├── modules                      # Unified auto-registration modules
-│   │   ├── assets.ts                # Unified auto-registration of static resources
-│   │   └── directives.ts            # Unified auto-registration of directives
+│   │   │──assets.ts                 # Automatically register static resources
+│   │   │──directives.ts             # Automatically register directives
+│   │   └──i18n.ts                   # Automatically register multilingualism
 │   ├── router                       # Router configuration
 │   │   ├── guard.ts                 # Router guard configuration
 │   │   ├── routes.inner.ts          # Fixed page routes
@@ -69,6 +71,7 @@ nova-admmin
 │   │   ├── array.ts                 # Array utilities
 │   │   ├── icon.ts                  # Icon utilities
 │   │   ├── storage.ts               # Storage encapsulation utilities
+│   │   ├── i18n.ts                  # Multilingual Tool
 │   │   └── index.ts                 # Utility class export entry
 │   ├── views                        # Pages
 │   ├── App.vue                      # Root component

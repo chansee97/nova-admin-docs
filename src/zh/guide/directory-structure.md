@@ -10,6 +10,7 @@ nova-admmin
 │   └── proxy.ts                     # vite代理相关方法
 ├── public
 │   └── favicon.svg                  # 站点图标
+├── locales                          # 多语言配置
 ├── src
 │   ├── assets                       # 静态资源
 │   │   └── svg-icons                # 自定义svg图标资源
@@ -29,8 +30,9 @@ nova-admmin
 │   │   ├── BasicLayout              # 基本布局
 │   │   └── components               # 布局内部组件
 │   ├── modules                      # 统一自动注册模块
-│   │   ├── assets.ts                # 统一自动注册静态资源
-│   │   └── directives.ts            # 统一自动注册指令
+│   │   ├── assets.ts                # 自动注册静态资源
+│   │   └── directives.ts            # 自动注册指令
+│   │   └── i18n.ts                  # 自动注册多语言
 │   ├── router                       # 路由配置
 │   │   ├── guard.ts                 # 路由守卫配置
 │   │   ├── routes.inner.ts          # 固定页面路由
@@ -69,6 +71,7 @@ nova-admmin
 │   │   ├── array.ts                 # 数组工具
 │   │   ├── icon.ts                  # 图标工具
 │   │   ├── storage.ts               # 存储封装工具
+│   │   ├── i18n.ts                  # 多语言工具
 │   │   └── index.ts                 # 工具类导出出口
 │   ├── views                        # 页面
 │   ├── App.vue                      # 根组件
