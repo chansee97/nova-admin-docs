@@ -42,7 +42,7 @@ interface RouteMeta {
   order?: number
   /* Nested external link */
   href?: string
-  /** The menu item that the current route needs to be selected, used for navigating to routes that are not displayed in the left menu and need to highlight a certain menu */
+  /** The current route is not displayed in the left menu, but needs to highlight a certain menu */
   activeMenu?: string
   /** Whether the current route will be added to the Tab */
   withoutTab?: boolean

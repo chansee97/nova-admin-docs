@@ -2,7 +2,7 @@
 
 ## Environment Setup
 
-Nova-admin is developed based on the latest version of Vite, so it requires [Node.js](https://nodejs.org/en/) version 18.x to support it. The recommended package manager is [pnpm](https://pnpm.io/) version 8.x.
+Nova-admin is developed based on the latest Vite version, so it requires [Node.js](https://nodejs.org/en/) version 20.x to support it. The recommended package manager is [pnpm](https://pnpm.io/) version 8.x.
 
 - [Detailed Environment Setup Tutorial](/dev/nodejs)
 
@@ -64,7 +64,11 @@ pnpm build
     "lint": "eslint .",
     // Check and automatically fix code using eslint
     "lint:fix": "eslint . --fix",
+    // Visualize viewing ESLint rule configuration
+    "lint:check": "npx @eslint/config-inspector",
     // Analyze the bundle artifacts using vite-bundle-visualizer plugin
     "sizecheck": "npx vite-bundle-visualizer"
   }
 ```
+
+- Regarding `@eslint/config-inspector`, you can refer to this [Blog](https://eslint.org/blog/2024/04/eslint-config-inspector/)

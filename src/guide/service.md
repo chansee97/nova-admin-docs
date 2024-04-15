@@ -34,7 +34,7 @@ export const serviceConfig: Record<ServiceEnvType, Record<string, string>> = {
 
 ## Use Proxy
 
-In some cases, it may not be possible to access the backend address directly. In such cases, you can use a proxy to access the backend. In this project, you can easily switch to a proxy environment.
+In some cases, you may need to use multiple backend service addresses. For example, interfaces a, b, and c request backend address A, while interfaces d, e, and f request backend address B. In this case, you can configure it like this:
 
 ::: code-group
 
@@ -108,6 +108,44 @@ export const requestB = createAlovaInstance({
 ```
 
 :::
+
+For different backend services, their response fields may also be different, for example:
+
+```js
+// service A success response
+{
+  code: 200,
+  data: 'some data',
+  message: 'success',
+}
+
+// service B success response
+{
+  status: 1,
+  data: 'some data',
+  msg:'success'
+}
+```
+
+In this case, you can pass the second parameter to solve this problem:
+
+```ts
+// src\service\http\index.ts
+const { url_A, url_B } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
+
+export const requestA = createAlovaInstance({
+  baseURL: isHttpProxy ? url_A.proxy : url_A.value,
+})
+
+export const requestB = createAlovaInstance({
+  baseURL: isHttpProxy ? url_B.proxy : url_B.value,
+}, {
+  codeKey: 'status',
+  dataKey: 'data',
+  msgKey: 'msg',
+  successCode: 1,
+})
+```
 
 ## Define Request
 

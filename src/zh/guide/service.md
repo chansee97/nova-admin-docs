@@ -84,7 +84,7 @@ const { otherUrl } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
 
 ## 使用多个服务
 
-在一些情况下，可能需要使用多个后台服务地址，例如a,b,c接口请求后台A,而d,e,f接口请求后台B,此时你可以像这样配置
+在一些情况下，可能需要使用多个后台服务地址，例如a,b,c接口请求后台地址A,而d,e,f接口请求后台地址B,此时你可以像这样配置
 
 ::: code-group
 
@@ -108,6 +108,44 @@ export const requestB = createAlovaInstance({
 ```
 
 :::
+
+对于不同的服务后台，可能他们响应的字段也不一样，例如
+
+```js
+// service A success response
+{
+  code: 200,
+  data: 'some data',
+  message: 'success',
+}
+
+// service B success response
+{
+  status: 1,
+  data: 'some data',
+  msg:'success'
+}
+```
+
+此时你可以传入第二个参数来解决这个问题
+
+```ts
+// src\service\http\index.ts
+const { url_A, url_B } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
+
+export const requestA = createAlovaInstance({
+  baseURL: isHttpProxy ? url_A.proxy : url_A.value,
+})
+
+export const requestB = createAlovaInstance({
+  baseURL: isHttpProxy ? url_B.proxy : url_B.value,
+}, {
+  codeKey: 'status',
+  dataKey: 'data',
+  msgKey: 'msg',
+  successCode: 1,
+})
+```
 
 ## 定义请求
 

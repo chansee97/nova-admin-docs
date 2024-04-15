@@ -2,7 +2,7 @@
 
 ## 环境准备
 
-Nova-admin是基于最新Vite版本开发，所以需要[Node.js](https://nodejs.org/en/) 18.x 版本来支持。
+Nova-admin是基于最新Vite版本开发，所以需要[Node.js](https://nodejs.org/en/) 20.x 版本来支持。
 包管理器推荐使用 [pnpm](https://pnpm.io/) 8.x 版本
 
 - [环境准备详细教程](/zh/dev/nodejs)
@@ -65,7 +65,11 @@ pnpm build
     "lint": "eslint .",
     // 使用eslint检查并自动修复代码
     "lint:fix": "eslint . --fix",
+    // 可视化查看eslint规则配置
+    "lint:check": "npx @eslint/config-inspector",
     // 使用vite-bundle-visualizer插件分析打包产物
     "sizecheck": "npx vite-bundle-visualizer"
   }
 ```
+
+- 关于`@eslint/config-inspector`，可查看这篇[Blog](https://eslint.org/blog/2024/04/eslint-config-inspector/)
