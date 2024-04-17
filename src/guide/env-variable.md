@@ -32,6 +32,13 @@ The project provides two routing modes: `dynamic` and `static`. If you do not ne
 
 Set the path to redirect to after login. This should be the path where you want to redirect immediately after logging in, and it will also be used as the priority path when returning to the homepage in a 404 scenario.
 
+### VITE_STORAGE_PREFIX
+
+- **Type:** `string`
+- **Default:** `null`
+
+Set the prefix for global storage. For example, if `VITE_STORAGE_PREFIX=nova_`, then using `src\utils\storage.ts`, the data in `localStorage` and `sessionStorage` will have the `nova_` prefix added, for example, `nova_token`.
+
 ## Development Environment
 
 Development environment variables are variables that are only toggled during development, such as whether to enable proxy, etc. Define these variables in the `.env.dev` file.

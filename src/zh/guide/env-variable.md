@@ -32,6 +32,13 @@
 
 设置登陆后跳转地址,这里应当配置你登录完成后立即跳转的地址，404返回首页的情况下也是优先使用该路径
 
+### VITE_STORAGE_PREFIX
+
+- **类型：** `string`
+- **默认：** `null`
+
+设置全局存储的前缀，例如`VITE_STORAGE_PREFIX=nova_`，那么使用`src\utils\storage.ts`在`localStorage`和`sessionStorage`中的数据都会加上`nova_`前缀，例如`nova_token`。
+
 ## 开发环境
 
 开发环境变量是只有在开发中才会切换的变量，例如是否开启代理等。在`.env.dev`文件中定义这些变量。
