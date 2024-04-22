@@ -6,20 +6,28 @@ Nova-admin is developed based on the latest Vite version, so it requires [Node.j
 
 - [Detailed Environment Setup Tutorial](/dev/nodejs)
 
-## Clone Repository
+## Get the Code
+
+### Download Artifact
+
+It is recommended to directly download the compressed package from [Releases](https://github.com/chansee97/nova-admin/releases)
+
+### Repository Clone
 
 ::: code-group
 
 ```shell [GitHub]
 git clone https://github.com/chansee97/nova-admin.git
-
 ```
 
 ```shell [Gitee]
 git clone https://gitee.com/chansee97/nova-admin.git
-
 ```
 
+:::
+
+::: tip
+After cloning the repository, make sure to manually delete the `.git` directory and other unnecessary files to prevent unnecessary code and history from being committed.
 :::
 
 ## Local Start

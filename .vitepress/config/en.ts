@@ -67,6 +67,10 @@ function nav(): DefaultTheme.NavItem[] {
           text: "Docs Repo",
           link: "https://github.com/chansee97/nova-admin-docs",
         },
+        {
+          text: "Changelog",
+          link: "https://github.com/chansee97/nova-admin/releases",
+        },
       ],
     },
   ];

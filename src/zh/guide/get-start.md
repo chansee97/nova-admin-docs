@@ -7,7 +7,13 @@ Nova-admin是基于最新Vite版本开发，所以需要[Node.js](https://nodejs
 
 - [环境准备详细教程](/zh/dev/nodejs)
 
-## 拉取仓库
+## 获取代码
+
+### 下载产物
+
+推荐直接下载[Releases](https://github.com/chansee97/nova-admin/releases)压缩包
+
+### 仓库拉取
 
 ::: code-group
 
@@ -21,6 +27,10 @@ git clone https://gitee.com/chansee97/nova-admin.git
 
 ```
 
+:::
+
+::: tip
+使用仓库拉取代码后，需要自行删除`.git`等目录，防止提交不必要的代码和记录
 :::
 
 ## 本地启动

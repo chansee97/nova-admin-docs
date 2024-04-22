@@ -91,6 +91,10 @@ function nav(): DefaultTheme.NavItem[] {
           text: "文档仓库",
           link: "https://github.com/chansee97/nova-admin-docs",
         },
+        {
+          text: "更新日志",
+          link: "https://github.com/chansee97/nova-admin/releases",
+        },
       ],
     },
   ];
