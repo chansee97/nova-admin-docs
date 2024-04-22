@@ -19,7 +19,8 @@
 - `showBreadcrumb`: 是否显示面包屑导航，默认为 `true`
 - `showBreadcrumbIcon`: 是否显示面包屑导航图标，默认为 `true`
 - `showWatermark`: 是否显示水印，默认为 `false`
-- `transitionAnimation`: 过渡动画的类型，默认为 `'fade-slide'`
+- `transitionAnimation`: 过渡动画类型，默认为 `'fade-slide'`
+- `layoutMode`: 界面布局类型，默认为 `'leftMenu'`
 
 ## 组件库样式
 

@@ -27,8 +27,10 @@ nova-admmin
 │   │   ├── useLoading.ts            # 组合式使用Loading方法
 │   │   └── usePermission.ts         # 组合式使用Permission方法
 │   ├── layouts                      # 全局布局组件
-│   │   ├── BasicLayout              # 基本布局
-│   │   └── components               # 布局内部组件
+│   │   ├── components               # 布局内部组件
+│   │   ├── leftMenu.layout.vue      # 左侧菜单布局
+│   │   ├── topMenu.layout.vue       # 顶部菜单布局
+│   │   └── index.vue                # 布局组件基座
 │   ├── modules                      # 统一自动注册模块
 │   │   ├── assets.ts                # 自动注册静态资源
 │   │   └── directives.ts            # 自动注册指令

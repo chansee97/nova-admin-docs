@@ -20,6 +20,7 @@ Modify `src\store\app\index.ts` to customize the following variables:
 - `showBreadcrumbIcon`: Whether to show breadcrumb navigation icon, default is `true`
 - `showWatermark`: Whether to show watermark, default is `false`
 - `transitionAnimation`: Type of transition animation, default is `'fade-slide'`
+- - `layoutMode`: Interface layout type, default is `'leftMenu'`
 
 ## Component Library Style
 

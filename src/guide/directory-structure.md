@@ -27,8 +27,10 @@ nova-admmin
 │   │   ├── useLoading.ts            # Using Loading composition functions
 │   │   └── usePermission.ts         # Using Permission composition functions
 │   ├── layouts                      # Global layout components
-│   │   ├── BasicLayout              # Basic layout
-│   │   └── components               # Components inside the layout
+│   │   ├── components               # Components inside the layout
+│   │   ├── leftMenu.layout.vue      # Left menu layout
+│   │   ├── topMenu.layout.vue       # Top menu layout
+│   │   └── index.vue                # Base layout component
 │   ├── modules                      # Unified auto-registration modules
 │   │   │──assets.ts                 # Automatically register static resources
 │   │   │──directives.ts             # Automatically register directives
