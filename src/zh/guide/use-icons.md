@@ -1,8 +1,10 @@
 # 使用图标
 
-## 自动引入图标
+## vue文件
 
-本项目使用[unplugin-icons](https://github.com/unplugin/unplugin-icons#auto-importing)来自动引入`@iconify-json/icon-park-outline`图标,推荐前往[icones](https://icones.js.org/collection/icon-park-outline)来寻找你需要的图标。**该方式图标会被自动打包到项目中。离线有效**
+### 模板中本地图标（离线有效）
+
+本项目使用[unplugin-icons](https://github.com/unplugin/unplugin-icons#auto-importing)来自动引入`@iconify-json/icon-park-outline`图标,推荐前往[icones](https://icones.js.org/collection/icon-park-outline)来寻找你需要的图标
 
 例如，你找到一个图标`home`，必须使用`<{collection}-{icon} />`格式来引入它，否则无效。
 
@@ -22,7 +24,7 @@
 推荐使用[Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify)插件提高开发体验
 :::
 
-## 自动加载网络图标
+### 模板中网络图标（离线无效）
 
 项目中也提供了自动加载网络图标的功能，可以使用[icones](https://icones.js.org)中的所有图标，而不再局限于`icon-park-outline`系列，此功能是基于[@iconify/vue](https://iconify.design/docs/icon-components/vue/)和[n-icon](https://www.naiveui.com/zh-CN/light/components/icon)实现的。**该方式图标会被不会自动打包到项目中。离线无效**
 
@@ -54,9 +56,28 @@ interface iconPorps {
 
 :::
 
-## 图标函数
+## ts文件
 
-有些场景可能无法直接使用组件的方式来使用图标，比如配合Naive组件添加一些动态图标，这时候可以使用`renderIcon`函数来使用图标。
+### ts中本地图标（离线有效）
+
+些场景可能无法直接使用组件的方式来使用图标，比如在ts文件或者vue文件的`script`中配合Naive组件添加一些图标渲染, 这时需要通过手动引入的方式来使用图标
+
+```ts
+import IconRedo from '~icons/icon-park-outline/redo'
+
+const options = [
+  {
+    label: '刷新',
+    key: 'reload',
+    icon: () => h(IconRedo),
+  }
+]
+
+```
+
+### TS中网络图标（离线无效）
+
+与上面场景一样，但是图标通过网络加载
 
 ```ts
 import { renderIcon } from '@/utils'

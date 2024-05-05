@@ -1,8 +1,10 @@
 # Using Icons
 
-## Automatically Importing Icons
+## Vue File
 
-This project uses [unplugin-icons](https://github.com/unplugin/unplugin-icons#auto-importing) to automatically import `@iconify-json/icon-park-outline` icons. It is recommended to visit [icones](https://icones.js.org/collection/icon-park-outline) to find the icons you need. **Icons imported this way will be automatically packaged into the project. Available offline.**
+### Local Icons in Templates (Available Offline)
+
+This project uses [unplugin-icons](https://github.com/unplugin/unplugin-icons#auto-importing) to automatically import icons from `@iconify-json/icon-park-outline`. It is recommended to visit [icones](https://icones.js.org/collection/icon-park-outline) to find the icons you need.
 
 For example, if you find an icon named `home`, you must use the `<{collection}-{icon} />` format to import it, otherwise it will not work.
 
@@ -22,7 +24,7 @@ For example, if you find an icon named `home`, you must use the `<{collection}-{
 It is recommended to use the [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) plugin to improve development experience.
 :::
 
-## Automatically Loading Network Icons
+### Network Icons in Templates (Not Available Offline)
 
 The project also provides the functionality to automatically load network icons, allowing the use of all icons from [icones](https://icones.js.org) rather than being limited to the `icon-park-outline` series. This feature is implemented based on [@iconify/vue](https://iconify.design/docs/icon-components/vue/) and [n-icon](https://www.naiveui.com/en-US/docs/icon). **Icons loaded this way will not be automatically packaged into the project. Not available offline.**
 
@@ -54,9 +56,27 @@ interface iconProps {
 
 :::
 
-## Icon Function
+## TypeScript File
 
-In some scenarios, it may not be possible to directly use the component to display icons, such as adding dynamic icons with Naive components. In such cases, you can use the `renderIcon` function to display icons.
+### Local Icons in TypeScript (Available Offline)
+
+In some scenarios, it may not be possible to directly use icons in a component, such as when adding icons for rendering in a TypeScript file or in the `script` section of a Vue file with Naive components. In such cases, icons need to be manually imported for use.
+
+```ts
+import IconRedo from '~icons/icon-park-outline/redo'
+
+const options = [
+  {
+    label: 'Refresh',
+    key: 'reload',
+    icon: () => h(IconRedo),
+  }
+]
+```
+
+### Network Icons in TypeScript (Not Available Offline)
+
+Similar to the above scenario, but icons are loaded from the network.
 
 ```ts
 import { renderIcon } from '@/utils'
