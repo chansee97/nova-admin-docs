@@ -39,6 +39,13 @@
 
 设置全局存储的前缀，例如`VITE_STORAGE_PREFIX=nova_`，那么使用`src\utils\storage.ts`在`localStorage`和`sessionStorage`中的数据都会加上`nova_`前缀，例如`nova_token`。
 
+### VITE_COPYRIGHT_INFO
+
+- **类型：** `string`
+- **默认：** `Copyright © 2024 chansee97`
+
+页面底部版权信息
+
 ## 开发环境
 
 开发环境变量是只有在开发中才会切换的变量，例如是否开启代理等。在`.env.dev`文件中定义这些变量。

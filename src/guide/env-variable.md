@@ -39,6 +39,13 @@ Set the path to redirect to after login. This should be the path where you want 
 
 Set the prefix for global storage. For example, if `VITE_STORAGE_PREFIX=nova_`, then using `src\utils\storage.ts`, the data in `localStorage` and `sessionStorage` will have the `nova_` prefix added, for example, `nova_token`.
 
+### VITE_COPYRIGHT_INFO
+
+- **Type:** `string`
+- **Default:** `Copyright © 2024 chansee97`
+
+Footer copyright information.
+
 ## Development Environment
 
 Development environment variables are variables that are only toggled during development, such as whether to enable proxy, etc. Define these variables in the `.env.dev` file.
