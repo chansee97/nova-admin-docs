@@ -25,7 +25,8 @@ nova-admmin
 │   │   ├── useBoolean.ts            # 组合式使用Boolean
 │   │   ├── useEcharts.ts            # 组合式使用Echarts方法
 │   │   ├── useLoading.ts            # 组合式使用Loading方法
-│   │   └── usePermission.ts         # 组合式使用Permission方法
+│   │   ├── usePermission.ts         # 组合式使用Permission方法
+│   │   └── useDefault.ts            # 组合式使用带默认值的re变量
 │   ├── layouts                      # 全局布局组件
 │   │   ├── components               # 布局内部组件
 │   │   ├── leftMenu.layout.vue      # 左侧菜单布局
@@ -49,19 +50,21 @@ nova-admmin
 │   │   │   └── index.ts             # 实例化请求器
 │   │   └── index.ts                 # 请求方法导出出口
 │   ├── store                        # 全局状态管理
-│   │   ├── app                      # 站点样式布局设置相关存储
+│   │   ├── app
 │   │   │   ├── theme.json           # 站点主题配置
-│   │   │   └── index.ts             # 站点设置存储库
+│   │   │   └── index.ts             # 站点样式布局设置相关存储
 │   │   ├── auth.ts                  # 用户权限相关存储
-│   │   ├── route.ts                 # 路由相关存储
+│   │   ├── route
+│   │   │   ├── helper.js            # 路由转换工具方法
+│   │   │   └── index.ts             # 路由相关存储
 │   │   └── tab.ts                   # Tab页签相关存储
 │   ├── styles                       # 项目样式风格
 │   │   ├── reset.css                # 重置样式css
 │   │   ├── transition.css           # 过渡样式css
 │   │   └── index.css                # 统一导出出口
 │   ├── typings                      # 类型文件
-│   │   ├── api.d.ts                 # 接口类型文件
-│   │   ├── business.d.ts            # 业务类型文件
+│   │   ├── api                      # 接口类型文件
+│   │   ├── entities                 # 数据库表实体类型文件
 │   │   ├── env.d.ts                 # 环境变量类型文件
 │   │   ├── global.d.ts              # 适用全局的其他类型文件
 │   │   ├── route.d.ts               # 路由类型文件

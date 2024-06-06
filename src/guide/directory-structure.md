@@ -25,7 +25,8 @@ nova-admmin
 │   │   ├── useBoolean.ts            # Using Boolean composition
 │   │   ├── useEcharts.ts            # Using Echarts composition functions
 │   │   ├── useLoading.ts            # Using Loading composition functions
-│   │   └── usePermission.ts         # Using Permission composition functions
+│   │   ├── usePermission.ts         # Using Permission composition functions
+│   │   └──  useDefault.ts           # Composite use of re variables with default values
 │   ├── layouts                      # Global layout components
 │   │   ├── components               # Components inside the layout
 │   │   ├── leftMenu.layout.vue      # Left menu layout
@@ -49,19 +50,21 @@ nova-admmin
 │   │   │   └── index.ts             # Instantiated requester
 │   │   └── index.ts                 # Export entry for request methods
 │   ├── store                        # Global state management
-│   │   ├── app                      # Site style layout related storage
+│   │   ├── app
 │   │   │   ├── theme.json           # Site theme configuration
-│   │   │   └── index.ts             # Site settings storage
+│   │   │   └── index.ts             # Site style layout related storage
 │   │   ├── auth.ts                  # User permission related storage
-│   │   ├── route.ts                 # Route related storage
+│   │   ├── route
+│   │   │   ├── helper.js            # Route conversion utility methods
+│   │   │   └── index.ts             # Route-related storage
 │   │   └── tab.ts                   # Tab related storage
 │   ├── styles                       # Project style styles
 │   │   ├── reset.css                # Reset style CSS
 │   │   ├── transition.css           # Transition style CSS
 │   │   └── index.css                # Unified export entry
 │   ├── typings                      # Type files
-│   │   ├── api.d.ts                 # Interface type files
-│   │   ├── business.d.ts            # Business type files
+│   │   ├── api                      # Interface type files
+│   │   ├── entities                 # Database table entity type file
 │   │   ├── env.d.ts                 # Environment variable type files
 │   │   ├── global.d.ts              # Other type files applicable globally
 │   │   ├── route.d.ts               # Route type files

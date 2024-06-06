@@ -54,7 +54,7 @@ interface RouteMeta {
 }
 ```
 
-这两部分数据，为了后端建表的便利性，并不将`meta`数据存为路由下的一个对象，而是添加`mata.`前缀，使其和上级路由完全平级,而路由的层级关系则使用`pid`字段来维护。
+这两部分数据组成了单个路由的数据结构,而路由的层级关系则使用`pid`字段来维护。
 所以，单组路由的数据结构示例如下
 
 ```js
@@ -62,10 +62,10 @@ interface RouteMeta {
   {
     'name': 'dashboard',
     'path': '/dashboard',
-    'meta.title': '仪表盘',
-    'meta.requiresAuth': true,
-    'meta.icon': 'icon-park-outline:analysis',
-    'meta.menuType': 'dir',
+    'title': '仪表盘',
+    'requiresAuth': true,
+    'icon': 'icon-park-outline:analysis',
+    'menuType': 'dir',
     'componentPath': null,
     'id': 1,
     'pid': null,
@@ -73,11 +73,11 @@ interface RouteMeta {
   {
     'name': 'dashboard_workbench',
     'path': '/dashboard/workbench',
-    'meta.title': '工作台',
-    'meta.requiresAuth': true,
-    'meta.icon': 'icon-park-outline:alarm',
-    'meta.pinTab': true,
-    'meta.menuType': 'page',
+    'title': '工作台',
+    'requiresAuth': true,
+    'icon': 'icon-park-outline:alarm',
+    'pinTab': true,
+    'menuType': 'page',
     'componentPath': '/dashboard/workbench/index.vue',
     'id': 2,
     'pid': 1,
@@ -85,10 +85,10 @@ interface RouteMeta {
   {
     'name': 'dashboard_monitor',
     'path': '/dashboard/monitor',
-    'meta.title': '监控页',
-    'meta.requiresAuth': true,
-    'meta.icon': 'icon-park-outline:anchor',
-    'meta.menuType': 'page',
+    'title': '监控页',
+    'requiresAuth': true,
+    'icon': 'icon-park-outline:anchor',
+    'menuType': 'page',
     'componentPath': '/dashboard/monitor/index.vue',
     'id': 3,
     'pid': 1,

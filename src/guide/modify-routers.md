@@ -53,18 +53,18 @@ interface RouteMeta {
 }
 ```
 
-For the convenience of backend table creation, the `meta` data is not stored as an object under the router but is prefixed with `meta.` to make it completely parallel with the parent router, while the hierarchy of routers is maintained using the `pid` field.
-Therefore, the data structure of a single router is as follows:
+These two parts of data together form the data structure of a single route, and the hierarchical relationship of routes is maintained using the `pid` field.
+Therefore, the data structure of a single set of routes is as follows:
 
 ```js
 [
   {
     'name': 'dashboard',
     'path': '/dashboard',
-    'meta.title': '仪表盘',
-    'meta.requiresAuth': true,
-    'meta.icon': 'icon-park-outline:analysis',
-    'meta.menuType': 'dir',
+    'title': '仪表盘',
+    'requiresAuth': true,
+    'icon': 'icon-park-outline:analysis',
+    'menuType': 'dir',
     'componentPath': null,
     'id': 1,
     'pid': null,
@@ -72,11 +72,11 @@ Therefore, the data structure of a single router is as follows:
   {
     'name': 'dashboard_workbench',
     'path': '/dashboard/workbench',
-    'meta.title': '工作台',
-    'meta.requiresAuth': true,
-    'meta.icon': 'icon-park-outline:alarm',
-    'meta.pinTab': true,
-    'meta.menuType': 'page',
+    'title': '工作台',
+    'requiresAuth': true,
+    'icon': 'icon-park-outline:alarm',
+    'pinTab': true,
+    'menuType': 'page',
     'componentPath': '/dashboard/workbench/index.vue',
     'id': 2,
     'pid': 1,
@@ -84,10 +84,10 @@ Therefore, the data structure of a single router is as follows:
   {
     'name': 'dashboard_monitor',
     'path': '/dashboard/monitor',
-    'meta.title': '监控页',
-    'meta.requiresAuth': true,
-    'meta.icon': 'icon-park-outline:anchor',
-    'meta.menuType': 'page',
+    'title': '监控页',
+    'requiresAuth': true,
+    'icon': 'icon-park-outline:anchor',
+    'menuType': 'page',
     'componentPath': '/dashboard/monitor/index.vue',
     'id': 3,
     'pid': 1,

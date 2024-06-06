@@ -19,6 +19,7 @@ Modify `src\store\app\index.ts` to customize the following variables:
 - `showBreadcrumb`: Whether to show breadcrumb navigation, default is `true`
 - `showBreadcrumbIcon`: Whether to show breadcrumb navigation icon, default is `true`
 - `showWatermark`: Whether to show watermark, default is `false`
+- `showSetting`: Whether to display the settings window, default is `false`
 - `transitionAnimation`: Type of transition animation, default is `'fade-slide'`
 - - `layoutMode`: Interface layout type, default is `'leftMenu'`
 
