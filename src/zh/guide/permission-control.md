@@ -2,7 +2,7 @@
 
 ## 菜单的角色权限控制
 
-在返回的菜单数据中，包含 `meta.roles` 字段，表示该菜单只有哪些角色可以访问，在下面的示例数据中，只有 `super` 角色可以访问。
+在返回的菜单数据中，包含 `roles` 字段，表示该菜单只有哪些角色可以访问，在下面的示例数据中，只有 `super` 角色可以访问。
 
 如果该字段为空，则表示所有角色都可以访问。
 
@@ -11,12 +11,12 @@
 {
   'name': 'justSuper',
   'path': '/permission/justSuper',
-  'meta.title': 'super可见',
-  'meta.requiresAuth': true,
-  'meta.roles': [
+  'title': 'super可见',
+  'requiresAuth': true,
+  'roles': [
     'super',
   ],
-  'meta.icon': 'icon-park-outline:wrong-user',
+  'icon': 'icon-park-outline:wrong-user',
   'componentPath': '/permission/justSuper/index.vue',
   'id': 30,
   'pid': 28,

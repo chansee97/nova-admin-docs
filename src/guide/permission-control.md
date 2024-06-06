@@ -2,7 +2,7 @@
 
 ## Role-Based Access Control for Menus
 
-In the returned menu data, there is a `meta.roles` field that indicates which roles can access that menu. In the example data below, only the `super` role can access it.
+In the returned menu data, there is a `roles` field that indicates which roles can access that menu. In the example data below, only the `super` role can access it.
 
 If this field is empty, it means that all roles can access it.
 
@@ -11,12 +11,12 @@ If this field is empty, it means that all roles can access it.
 {
   'name': 'justSuper',
   'path': '/permission/justSuper',
-  'meta.title': 'Visible to super',
-  'meta.requiresAuth': true,
-  'meta.roles': [
+  'title': 'Visible to super',
+  'requiresAuth': true,
+  'roles': [
     'super',
   ],
-  'meta.icon': 'icon-park-outline:wrong-user',
+  'icon': 'icon-park-outline:wrong-user',
   'componentPath': '/permission/justSuper/index.vue',
   'id': 30,
   'pid': 28,
