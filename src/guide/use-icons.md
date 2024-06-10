@@ -127,3 +127,24 @@ Icons({
 ```
 
 :::
+
+### Dynamically Importing Local SVG Icons
+
+Sometimes it may be necessary to dynamically import SVG icons. In such cases, the `renderIcon` function should be used, and the icon name must start with the `local:` prefix.
+
+```ts
+import { renderIcon } from '@/utils'
+
+// Automatically import `/src/assets/svg-icons/logo.svg`
+renderIcon('local:logo', {size: 20})
+```
+
+In the template, use the `nova-icon` component for importing
+
+```vue
+// usage
+<nova-icon icon="local:cool" />
+
+// modify style
+<nova-icon icon="local:cool" :color="red" :size="22"/>
+```

@@ -128,3 +128,24 @@ Icons({
 ```
 
 :::
+
+### 动态引入本地svg图标
+
+有时可能需要动态引入svg图标，这时需要使用`renderIcon`函数，传入的图标名字必须以`local:`标识作为开头
+
+```ts
+import { renderIcon } from '@/utils'
+
+// 自动引入 `/src/assets/svg-icons/logo.svg`
+renderIcon('local:logo', {size: 20})
+```
+
+在模板中则使用`nova-icon`组件来引入
+
+```vue
+// usage
+<nova-icon icon="local:cool" />
+
+// modify style
+<nova-icon icon="local:cool" :color="red" :size="22"/>
+```
