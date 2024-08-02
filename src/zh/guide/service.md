@@ -299,7 +299,7 @@ export function withoutToken() {
 ```ts
 export function dictData() {
   return request.Get('/getDictData', {
-    transformData(rawData, _headers) {
+    transform(rawData, _headers) {
       const response = rawData as any
       return {
         ...response,
@@ -359,10 +359,7 @@ getBlobFile()
 
 ```ts
 export function downloadFile(url: string) {
-  const methodInstance = blankInstance.Get<Blob>(url, {
-    // 开启下载进度
-    enableDownload: true,
-  })
+  const methodInstance = blankInstance.Get<Blob>(url)
   methodInstance.meta = {
     // 标识为bolb数据
     isBlob: true,
@@ -399,7 +396,7 @@ async function handleDownloadFile() {
 
 ::: tip 更多使用方法
 
-本项目的请求方法基于Alova进行封装，更多使用方法请参考[Alova](https://alova.js.org/zh/docs/getting-started)
+本项目的请求方法基于Alova进行封装，更多使用方法请参考[Alova](https://alova.js.org)
 
 :::
 
@@ -409,7 +406,7 @@ async function handleDownloadFile() {
 
 ### DEFAULT_ALOVA_OPTIONS
 
-修改该字段让请求器增加默认配置，字段详见[alova.options](https://alova.js.org/zh-CN/api/alova#alovaoptions)
+修改该字段让请求器增加默认配置，字段详见[alova.options](https://alova.js.org/api/alova#alovaoptions)
 
 ### DEFAULT_BACKEND_OPTIONS
 

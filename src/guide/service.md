@@ -299,7 +299,7 @@ Sometimes, the data returned by the backend may need to be transformed. You can 
 ```ts
 export function dictData() {
   return request.Get('/getDictData', {
-    transformData(rawData, _headers) {
+    transform(rawData, _headers) {
       const response = rawData as any
       return {
         ...response,
@@ -359,10 +359,7 @@ Sometimes, large files returned by the backend need to be downloaded with progre
 
 ```ts
 export function downloadFile(url: string) {
-  const methodInstance = blankInstance.Get<Blob>(url, {
-    // Enable download progress
-    enableDownload: true,
-  })
+  const methodInstance = blankInstance.Get<Blob>(url)
   methodInstance.meta = {
     // Mark as blob data
     isBlob: true,
@@ -399,7 +396,7 @@ async function handleDownloadFile() {
 
 ::: tip More Usage Methods
 
-The request methods in this project are encapsulated based on Alova. For more usage methods, please refer to [Alova](https://alova.js.org/en/docs/getting-started)
+The request methods in this project are encapsulated based on Alova. For more usage methods, please refer to [Alova](https://alova.js.org)
 
 :::
 
@@ -409,7 +406,7 @@ In `src\service\http\config.ts`, you can modify the judgment configuration of th
 
 ### DEFAULT_ALOVA_OPTIONS
 
-Modify this field to add default configurations to the requestor. For detailed field information, please refer to [alova.options](https://alova.js.org/en/api/alova#alovaoptions).
+Modify this field to add default configurations to the requestor. For detailed field information, please refer to [alova.options](https://alova.js.org/api/alova#alovaoptions).
 
 ### DEFAULT_BACKEND_OPTIONS
 
