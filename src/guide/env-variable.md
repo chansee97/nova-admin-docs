@@ -63,6 +63,9 @@ Development environment variables are variables that are only toggled during dev
 - **Default:** `N`
 
 If your project needs to use a proxy to access backend APIs, you can set `VITE_HTTP_PROXY` to `Y` to enable the proxy.
+::: warning
+This configuration is only effective in the development environment. The frontend cannot handle cross-origin issues in the production environment.
+:::
 
 ## Production Environment
 
