@@ -46,6 +46,13 @@ Set the prefix for global storage. For example, if `VITE_STORAGE_PREFIX=nova_`, 
 
 Footer copyright information.
 
+### VITE_AUTO_REFRESH_TOKEN
+
+- **Type:** `Y | N`
+- **Default:** `Y`
+
+Whether to use auto refresh token. When disabled, expired tokens will directly return to the login page.
+
 ## Development Environment
 
 Development environment variables are variables that are only toggled during development, such as whether to enable proxy, etc. Define these variables in the `.env.dev` file.

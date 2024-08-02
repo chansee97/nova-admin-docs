@@ -21,7 +21,8 @@ Modify `src\store\app\index.ts` to customize the following variables:
 - `showWatermark`: Whether to show watermark, default is `false`
 - `showSetting`: Whether to display the settings window, default is `false`
 - `transitionAnimation`: Type of transition animation, default is `'fade-slide'`
-- - `layoutMode`: Interface layout type, default is `'leftMenu'`
+- `layoutMode`: Interface layout type, default is `'leftMenu'`
+- `contentFullScreen`: Whether to display content in full screen, default is `false`
 
 ## Component Library Style
 

@@ -22,6 +22,7 @@
 - `showSetting`: 是否显示显示设置窗口，默认为 `false`
 - `transitionAnimation`: 过渡动画类型，默认为 `'fade-slide'`
 - `layoutMode`: 界面布局类型，默认为 `'leftMenu'`
+- `contentFullScreen`: 是否内容全屏，默认为 `false`
 
 ## 组件库样式
 
