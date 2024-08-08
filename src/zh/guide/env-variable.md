@@ -18,7 +18,7 @@
 
 如果你的项目需要设置一个名称，例如`Nova-admin`，你可以设置该变量的值为你的项目名称。
 
-### VITE_AUTH_ROUTE_MODE
+### VITE_ROUTE_LOAD_MODE
 
 - **类型：** `dynamic | static`
 - **默认：** `dynamic`
@@ -52,6 +52,13 @@
 - **默认：** `Y`
 
 是否使用自动刷新token，关闭后token过期将直接返回登录页面
+
+### VITE_DEFAULT_LANG
+
+- **类型：** `zhCN | enUS`
+- **默认：** `enUS`
+
+项目中默认使用的多语言配置，如果无效请清空浏览器本地缓存
 
 ## 开发环境
 

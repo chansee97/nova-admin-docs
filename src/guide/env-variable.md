@@ -18,7 +18,7 @@ If your project needs to run under a sub-path, you can use the `VITE_BASE_URL` v
 
 If your project requires a specific name, such as `Nova-admin`, you can set the value of this variable to your project name.
 
-### VITE_AUTH_ROUTE_MODE
+### VITE_ROUTE_LOAD_MODE
 
 - **Type:** `dynamic | static`
 - **Default:** `dynamic`
@@ -52,6 +52,13 @@ Footer copyright information.
 - **Default:** `Y`
 
 Whether to use auto refresh token. When disabled, expired tokens will directly return to the login page.
+
+### VITE_DEFAULT_LANG
+
+- **Type:** `zhCN | enUS`
+- **Default:** `enUS`
+
+Default language configuration used in the project. If it does not work, please clear the browser's local cache.
 
 ## Development Environment
 
