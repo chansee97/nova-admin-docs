@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Nova-admin"
   text: "A clean and concise middle template"
-  tagline: Vue3, Vite5, TypeScript, NaiveUI, Unocss
+  tagline: Vue3, Vite6, TypeScript, NaiveUI, Unocss
   image:
       src: /nova-admin.svg
       alt: Nova-admin
@@ -23,7 +23,7 @@ hero:
 features:
   - title: Latest Technology Stack
     icon: 💻
-    details: Developed based on the latest technology stack such as Vue3, Vite5, TypeScript, NaiveUI, Unocss
+    details: Developed based on the latest technology stack such as Vue3, Vite6, TypeScript, NaiveUI, Unocss
   - title: Network Requests
     icon: 📦
     details: Provide comprehensive network request encapsulation, unified response handling, and multi-scenario capabilities

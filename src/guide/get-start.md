@@ -2,7 +2,7 @@
 
 ## Environment Setup
 
-Nova-admin is developed based on the latest Vite version, so it requires [Node.js](https://nodejs.org/en/) version 20.x to support it. The recommended package manager is [pnpm](https://pnpm.io/) version 8.x.
+Nova-admin is developed based on the latest Vite version, so it requires [Node.js](https://nodejs.org/en/) version 21.x to support it. The recommended package manager is [pnpm](https://pnpm.io/) version 10.x.
 
 - [Detailed Environment Setup Tutorial](/dev/nodejs)
 

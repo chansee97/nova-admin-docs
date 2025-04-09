@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "Nova-admin"
   text: "一个简洁、干净的中后台管理模板"
-  tagline: Vue3、Vite5、TypeScript、NaiveUI、Unocss
+  tagline: Vue3、Vite6、TypeScript、NaiveUI、Unocss
   image:
       src: /nova-admin.svg
       alt: Nova-admin
@@ -22,7 +22,7 @@ hero:
 features:
   - title: 最新技术栈
     icon: 💻
-    details: 基于Vue3、Vite5、TypeScript、NaiveUI、Unocss等最新技术栈开发
+    details: 基于Vue3、Vite6、TypeScript、NaiveUI、Unocss等最新技术栈开发
   - title: 网络请求
     icon:  📦
     details: 提供完善的网络请求封装，提供统一的响应处理和多场景能力
