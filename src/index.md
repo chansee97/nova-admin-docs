@@ -18,7 +18,7 @@ hero:
       link: https://github.com/chansee97/nova-admin
     - theme: alt
       text: Online Preview
-      link: https://github.com/chansee97/nova-admin
+      link: https://nova-admin.pages.dev/
 
 features:
   - title: Latest Technology Stack

@@ -77,7 +77,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: "在线预览",
-          link: "https://nova-admin-site.netlify.app/",
+          link: "https://nova-admin.pages.dev/",
         },
         {
           text: "Github",

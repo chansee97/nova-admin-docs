@@ -53,7 +53,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: "Preview",
-          link: "https://nova-admin-site.netlify.app/",
+          link: "https://nova-admin.pages.dev/",
         },
         {
           text: "Github",
