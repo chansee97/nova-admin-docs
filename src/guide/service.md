@@ -230,7 +230,7 @@ Here are some examples of defining different request methods that cover most cas
 ### Get
 
 ```ts
-export function fetachGet(params?: any) {
+export function fetchGet(params?: any) {
   return request.Get('/getAPI', { params })
 }
 ```

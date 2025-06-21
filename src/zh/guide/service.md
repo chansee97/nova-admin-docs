@@ -230,7 +230,7 @@ const { data } = await fetchUserList({id: 1})
 ### Get
 
 ```ts
-export function fetachGet(params?: any) {
+export function fetchGet(params?: any) {
   return request.Get('/getAPI', { params })
 }
 ```
