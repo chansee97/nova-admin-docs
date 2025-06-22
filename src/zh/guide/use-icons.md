@@ -26,7 +26,7 @@
 
 ### 模板中网络图标（离线无效）
 
-项目中也提供了自动加载网络图标的功能，可以使用[icones](https://icones.js.org)中的所有图标，而不再局限于`icon-park-outline`系列，此功能是基于[@iconify/vue](https://iconify.design/docs/icon-components/vue/)和[n-icon](https://www.naiveui.com/zh-CN/light/components/icon)实现的。**该方式图标会被不会自动打包到项目中。离线无效**
+项目中也提供了自动加载网络图标的功能，可以使用[icones](https://icones.js.org)中的所有图标，而不再局限于`icon-park-outline`系列，此功能是基于[@iconify/vue](https://iconify.design/docs/icon-components/vue/)和[n-icon](https://www.naiveui.com/zh-CN/light/components/icon)实现的。**该方式图标不会被自动打包到项目中。离线无效**
 
 例如，你找到一个图标`icon-park-outline:user`
 
