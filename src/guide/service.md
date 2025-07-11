@@ -51,33 +51,10 @@ With the following configuration, enabling the proxy will automatically modify t
 
 ```ts [src\service\http\index.ts]
 import { createAlovaInstance } from './alova'
-import { serviceConfig } from '@/../service.config'
-import { generateProxyPattern } from '@/../build/proxy'
-
-const isHttpProxy = import.meta.env.VITE_HTTP_PROXY === 'Y' || false
-
-const { url } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
 
 export const request = createAlovaInstance({
-  baseURL: isHttpProxy ? url.proxy : url.value,
+  baseURL: __PROXY_MAPPING__.url.path,
 })
-```
-
-:::
-
-The deconstructed `url` must match the fields in `service.config.ts` as shown above, for example:
-
-::: code-group
-
-```ts [service.config.ts]
-dev: {
-  otherUrl: 'dev_url',
-}
-```
-
-```ts [src\service\http\index.ts]
-const { otherUrl } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
-
 ```
 
 :::
@@ -96,14 +73,12 @@ dev: {
 ```
 
 ```ts [src\service\http\index.ts]
-const { url_A, url_B } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
-
 export const requestA = createAlovaInstance({
-  baseURL: isHttpProxy ? url_A.proxy : url_A.value,
+  baseURL: __PROXY_MAPPING__.url_A,
 })
 
 export const requestB = createAlovaInstance({
-  baseURL: isHttpProxy ? url_B.proxy : url_B.value,
+  baseURL: __PROXY_MAPPING__.url_B,
 })
 ```
 
@@ -134,11 +109,11 @@ In this case, you can pass the second parameter to solve this problem:
 const { url_A, url_B } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
 
 export const requestA = createAlovaInstance({
-  baseURL: isHttpProxy ? url_A.proxy : url_A.value,
+  baseURL: __PROXY_MAPPING__.url_A,
 })
 
 export const requestB = createAlovaInstance({
-  baseURL: isHttpProxy ? url_B.proxy : url_B.value,
+  baseURL: __PROXY_MAPPING__.url_B,
 }, {
   codeKey: 'status',
   dataKey: 'data',

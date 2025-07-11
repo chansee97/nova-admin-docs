@@ -51,33 +51,10 @@ VITE_HTTP_PROXY=Y
 
 ```ts [src\service\http\index.ts]
 import { createAlovaInstance } from './alova'
-import { serviceConfig } from '@/../service.config'
-import { generateProxyPattern } from '@/../build/proxy'
-
-const isHttpProxy = import.meta.env.VITE_HTTP_PROXY === 'Y' || false
-
-const { url } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
 
 export const request = createAlovaInstance({
-  baseURL: isHttpProxy ? url.proxy : url.value,
+  baseURL: __PROXY_MAPPING__.url.path,
 })
-```
-
-:::
-
-此处解构出的`url`和必须和上方`service.config.ts`中的字段保持一致，例如
-
-::: code-group
-
-```ts [service.config.ts]
-dev: {
-  otherUrl: 'dev_url',
-}
-```
-
-```ts [src\service\http\index.ts]
-const { otherUrl } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
-
 ```
 
 :::
@@ -96,14 +73,12 @@ dev: {
 ```
 
 ```ts [src\service\http\index.ts]
-const { url_A, url_B } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
-
 export const requestA = createAlovaInstance({
-  baseURL: isHttpProxy ? url_A.proxy : url_A.value,
+  baseURL: __PROXY_MAPPING__.url_A,
 })
 
 export const requestB = createAlovaInstance({
-  baseURL: isHttpProxy ? url_B.proxy : url_B.value,
+  baseURL: __PROXY_MAPPING__.url_B,
 })
 ```
 
@@ -134,11 +109,11 @@ export const requestB = createAlovaInstance({
 const { url_A, url_B } = generateProxyPattern(serviceConfig[import.meta.env.MODE])
 
 export const requestA = createAlovaInstance({
-  baseURL: isHttpProxy ? url_A.proxy : url_A.value,
+  baseURL: __PROXY_MAPPING__.url_A,
 })
 
 export const requestB = createAlovaInstance({
-  baseURL: isHttpProxy ? url_B.proxy : url_B.value,
+  baseURL: __PROXY_MAPPING__.url_B,
 }, {
   codeKey: 'status',
   dataKey: 'data',
